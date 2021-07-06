@@ -65,7 +65,7 @@ thead,
 tr,
 th,
 td,
-article,
+.article,
 aside,
 canvas,
 details,
@@ -98,7 +98,7 @@ video {
     display: none;
 }
 
-article,
+.article,
 aside,
 details,
 figcaption,
@@ -322,7 +322,7 @@ select {
     text-align: center;
 }
 
-.vertical-tab .section-w3ls article {
+.vertical-tab .section-w3ls .article {
     display: none;
     left: 230px;
     min-width: calc(100% - 250px) !important;
@@ -330,7 +330,7 @@ select {
     top: 0;
 }
 
-/* .vertical-tab .section-w3ls article:after {
+/* .vertical-tab .section-w3ls .article:after {
     background-color: #fff;
     bottom: 0;
     content: "";
@@ -348,7 +348,7 @@ select {
     color: #fff;
 }
 
-.vertical-tab input[name="sections"]:checked ~ article {
+.vertical-tab input[name="sections"]:checked ~ .article {
     display: block;
 }
 
@@ -513,7 +513,7 @@ a.bottom-text-w3ls {
         max-width: 900px;
     }
 
-    .vertical-tab .section-w3ls article {
+    .vertical-tab .section-w3ls .article {
         min-width: 445px;
     }
 
@@ -533,7 +533,7 @@ a.bottom-text-w3ls {
         max-width: 768px;
     }
 
-    .vertical-tab .section-w3ls article {
+    .vertical-tab .section-w3ls .article {
         min-width: 400px;
         left: 175px;
     }
@@ -591,7 +591,7 @@ a.bottom-text-w3ls {
         max-width: 500px;
     }
 
-    .vertical-tab .section-w3ls article {
+    .vertical-tab .section-w3ls .article {
         min-width: 365px;
         left: 135px;
     }
@@ -608,7 +608,7 @@ a.bottom-text-w3ls {
 }
 
 @media(max-width: 480px) {
-    .vertical-tab .section-w3ls article {
+    .vertical-tab .section-w3ls .article {
         min-width: 291px;
         left: 109px;
     }
@@ -670,7 +670,7 @@ a.bottom-text-w3ls {
         max-width: 320px;
     }
 
-    .vertical-tab .section-w3ls article {
+    .vertical-tab .section-w3ls .article {
         position: static;
     }
 
@@ -720,7 +720,7 @@ a.bottom-text-w3ls {
         max-width: 270px;
     }
 
-    .vertical-tab .section-w3ls article {
+    .vertical-tab .section-w3ls .article {
         min-width: 270px;
     }
 }

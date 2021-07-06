@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="log-in.aspx.cs" Inherits="CateringSystemWebApp.log_in" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="log-in.aspx.cs" Inherits="CateringSystemWebApp.log_in" EnableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -9,6 +9,8 @@
     <!-- /Added by HTTrack -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="/URL/logo.png" />
+
     <!-- css files -->
     <link rel="stylesheet" href="/URL/login/css/style.css" type="text/css" media="all" />
     <!-- Style-CSS -->
@@ -41,141 +43,139 @@
                         <label for="option1" class="icon-left-w3pvt">
                             <span class="fa fa-user-circle"
                                 aria-hidden="true"></span>Login</label>
-                        <article style="padding: 63px 10px; background: rgba(0,0,0,0.7);">
-                            <form>
-                                <h3 class="legend">Login Here</h3>
-                                <div class="input">
-                                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                                    <input type="email" id="txtlogEmail" runat="server" placeholder="Email" name="email" />
-                                </div>
-                                <div class="input">
-                                    <span class="fa fa-key" aria-hidden="true"></span>
-                                    <input type="password" id="txtlogPassword" runat="server" placeholder="Password" name="password" />
-                                </div>
-                                <button type="submit" id="btnLogin" runat="server" class="btn submit">Login</button>
-                            </form>
-                        </article>
+                        <div class="article" style="padding: 63px 10px; background: rgba(0,0,0,0.7);">
+
+                            <h3 class="legend">Login Here</h3>
+                            <div class="input">
+                                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                                <input type="email" id="txtlogEmail" runat="server" placeholder="Email" name="email" />
+                            </div>
+                            <div class="input">
+                                <span class="fa fa-key" aria-hidden="true"></span>
+                                <input type="password" id="txtlogPassword" runat="server" placeholder="Password" name="password" />
+                            </div>
+                            <button type="submit" id="btnLogin" runat="server" onserverclick="btnLogin_OnServerClick" class="btn submit">Login</button>
+
+                        </div>
                     </div>
-                    <div id="section2" class="section-w3ls">
-                        <input type="radio" name="sections" runat="server" id="option2">
+                    <div id="section2" class="section-w3ls d-flex">
+                        <input type="radio" name="sections" runat="server" id="option2" />
                         <label for="option2" id="lblOption2" runat="server" class="icon-left-w3pvt">
                             <span class="fa fa-pencil-square"
                                 aria-hidden="true"></span>Register</label>
-                        <article>
-                            <form action="#" method="post">
-                                <h3 class="legend">Register Here</h3>
-                                <div style="display: flex; padding: 10px">
-                                    <div style="width: 50%; text-align: center; padding-right: 5px;">
-                                        <button id="btnCus" type="button" class="reg-top-button">Customer</button>
-                                    </div>
-                                    <div style="width: 50%; text-align: center; padding-left: 5px;">
-                                        <button id="btnCat" type="button" class="reg-top-button">Caterer</button>
-                                    </div>
+                        <div class="article" style="padding: 30px 10px; background: rgba(0,0,0,0.7);">
+                            <h3 class="legend">Register Here</h3>
+                            <div style="display: flex; padding: 10px">
+                                <div style="width: 50%; text-align: center; padding-right: 5px;">
+                                    <button id="btnCus" type="button" class="reg-top-button">Customer</button>
                                 </div>
-                                <asp:Panel ID="panelCus" runat="server">
+                                <div style="width: 50%; text-align: center; padding-left: 5px;">
+                                    <button id="btnCat" type="button" class="reg-top-button">Caterer</button>
+                                </div>
+                            </div>
+                            <asp:Panel ID="panelCus" runat="server">
+                                <div class="input">
+                                    <span class="fa fa-user-o" aria-hidden="true"></span>
+                                    <input type="text" runat="server" id="txtCusName" placeholder="Full Name" name="name" />
+                                </div>
+                                <div class="input">
+                                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                                    <input type="email" runat="server" id="txtCusEmail" placeholder="Email Address" name="name" />
+                                </div>
+                                <div class="input">
+                                    <span class="fa fa-phone" aria-hidden="true"></span>
+                                    <input type="text" runat="server" id="txtCusMobile" placeholder="Mobile Number" name="name" />
+                                </div>
+                                <div class="input">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                    <asp:DropDownList ID="ddlGender" runat="server">
+                                        <asp:ListItem>Gender</asp:ListItem>
+                                        <asp:ListItem>Male</asp:ListItem>
+                                        <asp:ListItem>Female</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                                <div class="input">
+                                    <input type="date" runat="server" id="txtCusDOB" placeholder="" name="name" />
+                                </div>
+                                <div class="input">
+                                    <span class="fa fa-image" aria-hidden="true"></span>
+                                    <asp:FileUpload ID="fileCus" accept=".png,.jpg,.jpeg,.giff,.tiff" runat="server" />
+                                </div>
+                                <div class="input">
+                                    <span class="fa fa-key" aria-hidden="true"></span>
+                                    <input type="password" runat="server" id="txtCusPass" placeholder="Password" name="password" />
+                                </div>
+                                <asp:Button ID="btnCusReg" OnClick="btnCusReg_OnClick" class="btn submit" runat="server" Text="Register" />
+                            </asp:Panel>
+                            <%-- Caterer --%>
+                            <asp:Panel ID="panelCat" runat="server" Style="display: none;">
+                                <asp:Panel ID="View1" runat="server">
                                     <div class="input">
                                         <span class="fa fa-user-o" aria-hidden="true"></span>
-                                        <input type="text" runat="server" id="txtCusName" placeholder="Full Name" name="name" />
+                                        <input type="text" runat="server" id="txtCatName" placeholder="Catering Name" name="name" />
                                     </div>
                                     <div class="input">
                                         <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                                        <input type="email" runat="server" id="txtCusEmail" placeholder="Email Address" name="name" />
+                                        <input type="email" runat="server" id="txtCatEmail" placeholder="Email Address" name="name" />
                                     </div>
                                     <div class="input">
                                         <span class="fa fa-phone" aria-hidden="true"></span>
-                                        <input type="text" runat="server" id="txtCusMobile" placeholder="Mobile Number" name="name" />
+                                        <input type="text" runat="server" id="txtCatMobile" placeholder="Mobile Number" name="name" />
                                     </div>
                                     <div class="input">
-                                        <span class="fa fa-user" aria-hidden="true"></span>
-                                        <asp:DropDownList ID="ddlGender" runat="server">
-                                            <asp:ListItem>Gender</asp:ListItem>
-                                            <asp:ListItem>Male</asp:ListItem>
-                                            <asp:ListItem>Female</asp:ListItem>
+                                        <span class="fa fa-map-marker" aria-hidden="true"></span>
+                                        <asp:DropDownList ID="ddlDis" runat="server">
+                                            <asp:ListItem>--DISTRICT--</asp:ListItem>
                                         </asp:DropDownList>
                                     </div>
                                     <div class="input">
-                                        <input type="date" runat="server" id="txtCusDOB" placeholder="" name="name" />
+                                        <span class="fa fa-building" aria-hidden="true"></span>
+                                        <asp:DropDownList ID="ddlThana" runat="server">
+                                            <asp:ListItem>--THANA--</asp:ListItem>
+                                        </asp:DropDownList>
                                     </div>
                                     <div class="input">
                                         <span class="fa fa-image" aria-hidden="true"></span>
-                                        <asp:FileUpload ID="fileCus" accept=".png,.jpg,.jpeg,.giff,.tiff" runat="server" />
+                                        <asp:FileUpload ID="fileCat" accept=".png,.jpg,.jpeg,.giff,.tiff" runat="server" />
                                     </div>
                                     <div class="input">
                                         <span class="fa fa-key" aria-hidden="true"></span>
-                                        <input type="password" runat="server" id="txtCusPass" placeholder="Password" name="password" />
+                                        <input type="password" id="txtCatPass" runat="server" placeholder="Password" name="password" />
                                     </div>
-                                    <button type="submit" runat="server" id="btnCusReg" onserverclick="btnCusReg_OnServerClick" class="btn submit">Register</button>
+                                    <button type="button" id="btnCatNext" class="btn submit">Next</button>
                                 </asp:Panel>
-                                <%-- Caterer --%>
-                                <asp:Panel ID="panelCat" runat="server" Style="display: none;">
-                                    <asp:Panel ID="View1" runat="server">
-                                        <div class="input">
-                                            <span class="fa fa-user-o" aria-hidden="true"></span>
-                                            <input type="text" runat="server" id="txtCatName" placeholder="Catering Name" name="name" />
-                                        </div>
-                                        <div class="input">
-                                            <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                                            <input type="email" runat="server" id="txtCatEmail" placeholder="Email Address" name="name" />
-                                        </div>
-                                        <div class="input">
-                                            <span class="fa fa-phone" aria-hidden="true"></span>
-                                            <input type="text" runat="server" id="txtCatMobile" placeholder="Mobile Number" name="name" />
-                                        </div>
-                                        <div class="input">
-                                            <span class="fa fa-map-marker" aria-hidden="true"></span>
-                                            <asp:DropDownList ID="ddlDis" runat="server">
-                                                <asp:ListItem>--DISTRICT--</asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                        <div class="input">
-                                            <span class="fa fa-building" aria-hidden="true"></span>
-                                            <asp:DropDownList ID="ddlThana" runat="server">
-                                                <asp:ListItem>--THANA--</asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                        <div class="input">
-                                            <span class="fa fa-image" aria-hidden="true"></span>
-                                            <asp:FileUpload ID="fileCat" accept=".png,.jpg,.jpeg,.giff,.tiff" runat="server" />
-                                        </div>
-                                        <div class="input">
-                                            <span class="fa fa-key" aria-hidden="true"></span>
-                                            <input type="password" id="txtCatPass" runat="server" placeholder="Password" name="password" />
-                                        </div>
-                                        <button type="button" id="btnCatNext" class="btn submit">Next</button>
-                                    </asp:Panel>
-                                    <asp:Panel ID="View2" runat="server" Style="display: none;">
-                                        <p class="para-style">Please pay BDT 200 as your registration fees to 01XXXXXXXXX by bkash or nagad. Please use your email id as your reference.</p>
-                                        <div class="input">
-                                            <span class="fa fa-mobile" aria-hidden="true"></span>
-                                            <input type="text" runat="server" id="txtCatBkash" placeholder="Bkash no (Last 6 digit only)" maxlength="6" name="name" />
-                                        </div>
-                                        <div class="input">
-                                            <span class="fas fa-sort-numeric-up-alt" aria-hidden="true"></span>
-                                            <input type="text" runat="server" id="txtCatTrans" placeholder="Transaction Number" name="name" />
-                                        </div>
-                                        <asp:Button ID="btnCatReg" class="btn submit" OnClick="btnCatReg_OnClick" runat="server" Text="Register" />
-                                    </asp:Panel>
+                                <asp:Panel ID="View2" runat="server" Style="display: none;">
+                                    <p class="para-style">Please pay BDT 200 as your registration fees to 01XXXXXXXXX by bkash or nagad. Please use your email id as your reference.</p>
+                                    <div class="input">
+                                        <span class="fa fa-mobile" aria-hidden="true"></span>
+                                        <input type="text" runat="server" id="txtCatBkash" placeholder="Bkash no (Last 6 digit only)" maxlength="6" name="name" />
+                                    </div>
+                                    <div class="input">
+                                        <span class="fas fa-sort-numeric-up-alt" aria-hidden="true"></span>
+                                        <input type="text" runat="server" id="txtCatTrans" placeholder="Transaction Number" name="name" />
+                                    </div>
+                                    <asp:Button ID="btnCatReg" class="btn submit" OnClick="btnCatReg_OnClick" runat="server" Text="Register" />
                                 </asp:Panel>
-                            </form>
-                        </article>
+                            </asp:Panel>
+                        </div>
                     </div>
-                    <div id="section3" class="section-w3ls">
+                    <div id="section3" class="section-w3ls d-flex">
                         <input type="radio" name="sections" id="option3">
                         <label for="option3" class="icon-left-w3pvt">
                             <span class="fa fa-lock" aria-hidden="true"></span>Forgot
               Password?</label>
-                        <article>
-                            <form action="#" method="post">
-                                <h3 class="legend last">Reset Password</h3>
-                                <p class="para-style">Enter your email address below and we'll send you an email with instructions.</p>
+                        <div class="article" style="padding: 30px 10px; background: rgba(0,0,0,0.7);">
 
-                                <div class="input">
-                                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
-                                    <input type="email" id="txtForgotEmail" placeholder="Email" runat="server" name="email" />
-                                </div>
-                                <button type="submit" runat="server" class="btn submit last-btn">Reset Password</button>
-                            </form>
-                        </article>
+                            <h3 class="legend last">Reset Password</h3>
+                            <p class="para-style">Enter your email address below and we'll send you an email with instructions.</p>
+
+                            <div class="input">
+                                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                                <input type="email" id="txtForgotEmail" placeholder="Email" runat="server" name="email" />
+                            </div>
+                            <button type="submit" runat="server" OnServerClick="OnServerClick" class="btn submit last-btn">Reset Password</button>
+
+                        </div>
                     </div>
                 </div>
                 <!-- //vertical tabs -->
@@ -192,6 +192,9 @@
         </div>
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+
     <script>
         $(document).ready(function () {
             $('#btnCus').click(function () {
@@ -206,7 +209,11 @@
                 $('#View1').css('display', 'none');
                 $('#View2').css('display', 'block');
             });
+            $('.select2').select2({
+                closeOnSelect: false
+            });
         });
     </script>
+
 </body>
 </html>
