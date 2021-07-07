@@ -84,20 +84,14 @@
                                                 <li><a class="lgx-scroll btn lgx-btn" href="#lgx-reservation"><span>Reservation</span></a></li>
                                     </ul>
                                     <div class="lgx-nav-right">
-                                        <div class="lgx-search">
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                            <div class="search">
-                                                <form action="#" method="GET" role="search">
-                                                    <input type="text" class="form-control input" name="q" placeholder="Search for snippets and hit enter">
-                                                </form>
-                                                <div class="close"><i class="fa fa-close"></i></div>
-                                            </div>
-                                        </div>
-                                        <div class="lgx-cart-area">
+                                       <div class="lgx-cart-area">
                                             <a class="lgx-cart" href="#">
                                                 <img src="/URL/user/assets/img/cart-icon.png" alt="cart">
                                                 <span class="notification">2</span>
                                             </a>
+                                        </div>
+                                         <div class="lgx-search">
+                                            <a runat="server" OnServerClick="OnServerClick"><i class="fa fa-sign-out-alt"></i></a>
                                         </div>
                                     </div>
                                 </div>

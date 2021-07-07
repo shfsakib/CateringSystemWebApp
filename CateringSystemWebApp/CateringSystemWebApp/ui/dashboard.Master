@@ -210,7 +210,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
+                                <a runat="server" OnServerClick="OnServerClick" class="dropdown-item notify-item">
                                     <i class="fas fa-power-off"></i>
                                     <span>Logout</span>
                                 </a>

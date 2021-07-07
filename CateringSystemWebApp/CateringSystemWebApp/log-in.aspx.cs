@@ -227,7 +227,7 @@ namespace CateringSystemWebApp
                 }
                 else
                 {
-                    bool ans = func.SendEmail("foodservice710@gmail.com", txtForgotEmail.Value, "Password", "<h3>Hello,</h3><br/>Your Password is: " + pass, "280amichild");
+                    bool ans = func.SendEmail("foodservice710@gmail.com", txtForgotEmail.Value, "Password", "<h3>Hello,</h3><br/>Your Password is: " + pass, "*trishucse01205991#");
                     if (ans)
                     {
                         func.PopAlert(this, "We have send you an email with instructions");
