@@ -98,7 +98,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ui\add-menu.aspx" />
     <Content Include="ui\index.aspx" />
+    <Content Include="ui\menu-list.aspx" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.eot" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.ttf" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.woff" />
@@ -118,8 +120,10 @@
     <Content Include="URL\dashboard\assets\plugins\jquery.filer\assets\fonts\jquery.filer-icons\jquery-filer.ttf" />
     <Content Include="URL\dashboard\assets\plugins\jquery.filer\assets\fonts\jquery.filer-icons\jquery-filer.woff" />
     <Content Include="URL\dashboard\assets\plugins\jquery.filer\assets\fonts\jquery.filer-icons\jquery-filerd41d.eot" />
+    <Content Include="URL\image.png" />
     <Content Include="URL\logo.png" />
     <Content Include="URL\select2.css" />
+    <Content Include="URL\user.png" />
     <Content Include="URL\user\assets\img\favicon\manifest.json" />
     <Content Include="URL\user\assets\libs\bootstrap\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="URL\user\assets\libs\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
@@ -405,6 +409,13 @@
       <DependentUpon>log-in.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ui\add-menu.aspx.cs">
+      <DependentUpon>add-menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\add-menu.aspx.designer.cs">
+      <DependentUpon>add-menu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ui\dashboard.Master.cs">
       <DependentUpon>dashboard.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -418,6 +429,13 @@
     </Compile>
     <Compile Include="ui\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\menu-list.aspx.cs">
+      <DependentUpon>menu-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\menu-list.aspx.designer.cs">
+      <DependentUpon>menu-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="URL\Function.cs" />
     <Compile Include="web\home.aspx.cs">

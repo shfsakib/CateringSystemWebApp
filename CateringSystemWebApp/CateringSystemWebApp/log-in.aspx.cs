@@ -186,7 +186,7 @@ namespace CateringSystemWebApp
                     HttpContext.Current.Response.Cookies.Add(cookie);
                     cookie["Name"] = func.IsExist($"SELECT Name FROM Register WHERE Email='{txtlogEmail.Value}'");
                     cookie["Type"] = func.IsExist($"SELECT Type FROM Register WHERE Email='{txtlogEmail.Value}'");
-                    cookie["UserId"] = func.IsExist($"SELECT UserId FROM Register WHERE Email='{txtlogEmail.Value}'");
+                    cookie["UserId"] = func.IsExist($"SELECT RegId FROM Register WHERE Email='{txtlogEmail.Value}'");
                     cookie["Email"] = func.IsExist($"SELECT Email FROM Register WHERE Email='{txtlogEmail.Value}'");
                     cookie["Picture"] = func.IsExist($"SELECT Picture FROM Register WHERE Email='{txtlogEmail.Value}'");
                     cookie["Mobile"] = func.IsExist($"SELECT MobileNo FROM Register WHERE Email='{txtlogEmail.Value}'");

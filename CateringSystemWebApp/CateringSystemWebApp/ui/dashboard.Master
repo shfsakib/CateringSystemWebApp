@@ -21,6 +21,12 @@
     <link rel="stylesheet" type="text/css" href="/URL/dashboard/assets/plugins/datatables/datatables.min.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        .card-box i {
+            font-size: 14px !important;
+            margin-top: 0px !important;
+        }
+    </style>
 </head>
 <body class="adminbody">
     <form id="form1" runat="server">
@@ -210,7 +216,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a runat="server" OnServerClick="OnServerClick" class="dropdown-item notify-item">
+                                <a runat="server" onserverclick="OnServerClick" class="dropdown-item notify-item">
                                     <i class="fas fa-power-off"></i>
                                     <span>Logout</span>
                                 </a>
@@ -559,5 +565,6 @@
             });
         });
     </script>
+
 </body>
 </html>
