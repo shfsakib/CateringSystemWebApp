@@ -54,7 +54,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 mt-2">
-                            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_OnClick" class="btn btn-success wd" Text="Add Food to Menu" />
+                            <asp:Button ID="btnAdd" runat="server" OnClick="btnAdd_OnClick" class="btn btn-success btn-block" Text="Add Food to Menu" />
                         </div>
                     </div>
                 </div>

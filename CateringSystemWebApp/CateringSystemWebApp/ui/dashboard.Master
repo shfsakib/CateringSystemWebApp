@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="dashboard.master.cs" Inherits="CateringSystemWebApp.ui.dashboard" %>
 
+<%@ Import Namespace="CateringSystemWebApp.URL" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -11,14 +13,11 @@
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/URL/logo.png" />
     <!-- Bootstrap CSS -->
-    <link href="/URL/dashboard/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="../URL/dashboard/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome CSS -->
-    <link href="/URL/dashboard/assets/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
+    <link href="../URL/dashboard/assets/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
-    <link href="/URL/dashboard/assets/css/style.css" rel="stylesheet" type="text/css" />
-    <!-- BEGIN CSS for this page -->
-    <link rel="stylesheet" type="text/css" href="/URL/dashboard/assets/plugins/chart.js/Chart.min.css" />
-    <link rel="stylesheet" type="text/css" href="/URL/dashboard/assets/plugins/datatables/datatables.min.css" />
+    <link href="../URL/dashboard/assets/css/style.css" rel="stylesheet" type="text/css" /> 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
@@ -37,175 +36,29 @@
 
                 <!-- LOGO -->
                 <div class="headerbar-left">
-                    <a href="index-2.html" class="logo">
+                    <a href="/ui/index.aspx" class="logo">
                         <img alt="Logo" src="/URL/logo.png" />
                         <span>Catering Service</span>
                     </a>
                 </div>
+                <%Function func = Function.GetInstance();
+                    HttpCookie cookie = Function.GetCookie();
+                    if (cookie == null)
+                    {
+                        Response.Redirect("/log-in.aspx");
+                    } %>
 
                 <nav class="navbar-custom">
-
                     <ul class="list-inline float-right mb-0">
                         <li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
-                                <i class="far fa-envelope"></i>
-                                <span class="notif-bullet"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5>
-                                        <small>
-                                            <span class="label label-danger pull-xs-right">12</span>Mailbox</small>
-                                    </h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="mail-all.html" class="dropdown-item notify-item">
-                                    <p class="notify-details ml-0">
-                                        <b>John Doe</b>
-                                        <span>New message received</span>
-                                        <small class="text-muted">3 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="mail-all.html" class="dropdown-item notify-item">
-                                    <p class="notify-details ml-0">
-                                        <b>Michael Smith</b>
-                                        <span>New message received</span>
-                                        <small class="text-muted">18 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="mail-all.html" class="dropdown-item notify-item">
-                                    <p class="notify-details ml-0">
-                                        <b>John Lenons</b>
-                                        <span>New message received</span>
-                                        <small class="text-muted">Yesterday, 18:27</small>
-                                    </p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="mail-all.html" class="dropdown-item notify-item notify-all">View All Messages
-                            </a>
-
-                            </div>
-
-                        </li>
-
-                        <li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
-                                <i class="far fa-bell"></i>
-                                <span class="notif-bullet"></span>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-lg">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5>
-                                        <small>
-                                            <span class="label label-danger pull-xs-right">5</span>Allerts</small>
-                                    </h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-faded">
-                                        <img src="assets/images/avatars/avatar2.png" alt="img" class="rounded-circle img-fluid">
-                                    </div>
-                                    <p class="notify-details">
-                                        <b>John Doe</b>
-                                        <span>User registration</span>
-                                        <small class="text-muted">3 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-faded">
-                                        <img src="assets/images/avatars/avatar3.png" alt="img" class="rounded-circle img-fluid">
-                                    </div>
-                                    <p class="notify-details">
-                                        <b>Michael Cox</b>
-                                        <span>Task 2 completed</span>
-                                        <small class="text-muted">12 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-faded">
-                                        <img src="assets/images/avatars/avatar4.png" alt="img" class="rounded-circle img-fluid">
-                                    </div>
-                                    <p class="notify-details">
-                                        <b>Michelle Dolores</b>
-                                        <span>New job completed</span>
-                                        <small class="text-muted">35 minutes ago</small>
-                                    </p>
-                                </a>
-
-                                <!-- All-->
-                                <a href="#" class="dropdown-item notify-item notify-all">View All Allerts
-                            </a>
-
-                            </div>
-                        </li>
-
-
-                        <li class="list-inline-item dropdown notif">
-                            <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
-                                <i class="fas fa-cog"></i>
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right dropdown-arrow dropdown-arrow-success dropdown-sm">
-                                <!-- item-->
-                                <div class="dropdown-item noti-title">
-                                    <h5>
-                                        <small>Settings</small>
-                                    </h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <p class="notify-details ml-0">
-                                        <i class="fas fa-cog"></i>
-                                        <b>Settings 1</b>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <p class="notify-details ml-0">
-                                        <i class="fas fa-cog"></i>
-                                        <b>Settings 2</b>
-                                    </p>
-                                </a>
-
-                                <!-- item-->
-                                <a href="#" class="dropdown-item notify-item">
-                                    <p class="notify-details ml-0">
-                                        <i class="fas fa-cog"></i>
-                                        <b>Settings 3</b>
-                                    </p>
-                                </a>
-
-                            </div>
-
-                        </li>
-
-
-                        <li class="list-inline-item dropdown notif">
                             <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" aria-haspopup="false" aria-expanded="false">
-                                <img src="assets/images/avatars/admin.png" alt="Profile image" class="avatar-rounded">
+                                <img src='<%=func.PictureCookie() %>' alt="Profile image" class="avatar-rounded">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                 <!-- item-->
                                 <div class="dropdown-item noti-title">
                                     <h5 class="text-overflow">
-                                        <small>Hello, admin</small>
+                                        <small>Hello, <%=func.NameCookie() %></small>
                                     </h5>
                                 </div>
 
@@ -227,9 +80,9 @@
 
                     <ul class="list-inline menu-left mb-0">
                         <li class="float-left">
-                            <button class="button-menu-mobile open-left">
+                            <a class="button-menu-mobile open-left">
                                 <i class="fas fa-bars"></i>
-                            </button>
+                            </a>
                         </li>
                     </ul>
 
@@ -244,256 +97,53 @@
                 <div class="sidebar-inner leftscroll">
 
                     <div id="sidebar-menu">
-
                         <ul>
+                            <% if (func.TypeCookie() == "Cate")
+                                { %>
                             <li class="submenu">
-                                <a class="active" href="index-2.html">
+                                <a class="active" href="/ui/index.aspx">
+                                    <i class="fas fa-home"></i>
+                                    <span>Dashboard </span>
+                                </a>
+                            </li>
+                            <li class="submenu">
+                                <a href="#">
+                                    <i class="fas fa-book-open"></i>
+                                    <span>Menu Info</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="/ui/add-menu.aspx">Add Menu</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ui/menu-list.aspx">Menu List</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <% }
+                                else if (func.TypeCookie() == "Admin")
+                                { %>
+                            <li class="submenu">
+                                <a class="" href="/ui/index.aspx">
                                     <i class="fas fa-bars"></i>
                                     <span>Dashboard </span>
                                 </a>
                             </li>
-
                             <li class="submenu">
-                                <a href="users.html">
+                                <a class="" href="/ui/customer-list.aspx">
                                     <i class="fas fa-user"></i>
-                                    <span>Users </span>
+                                    <span>Customer List </span>
                                 </a>
                             </li>
-
                             <li class="submenu">
-                                <a href="blog.html">
-                                    <i class="fas fa-file-alt"></i>
-                                    <span>Blog </span>
+                                <a class="" href="/ui/caterer-list.aspx">
+                                    <i class="fas fa-store"></i>
+                                    <span>Caterer List </span>
                                 </a>
                             </li>
-
-                            <li class="submenu">
-                                <a href="mail-all.html">
-                                    <span class="label radius-circle bg-danger float-right">18</span>
-                                    <i class="fas fa-envelope"></i>
-                                    <span>Mailbox </span>
-                                </a>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="slider.html">
-                                    <i class="fas fa-photo-video"></i>
-                                    <span>Slider </span>
-                                </a>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="charts.html">
-                                    <i class="fas fa-chart-line"></i>
-                                    <span>Charts </span>
-                                </a>
-                            </li>
-
-                            <li class="submenu">
-                                <a id="tables" href="#">
-                                    <i class="fas fa-table"></i>
-                                    <span>Tables </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="tables-basic.html">Basic Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="tables-datatable.html">Data Tables</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="#">
-                                    <i class="fas fa-laptop"></i>
-                                    <span>User Interface </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="ui-alerts.html">Alerts</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-buttons.html">Buttons</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-cards.html">Cards</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-carousel.html">Carousel</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-collapse.html">Collapse</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-icons.html">Icons</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-modals.html">Modals</a>
-                                    </li>
-                                    <li>
-                                        <a href="ui-tooltips.html">Tooltips and Popovers</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="#">
-                                    <i class="fab fa-wpforms"></i>
-                                    <span>Forms </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="forms-general.html">General Elements</a>
-                                    </li>
-                                    <li>
-                                        <a href="forms-select2.html">Select2</a>
-                                    </li>
-                                    <li>
-                                        <a href="forms-validation.html">Form Validation</a>
-                                    </li>
-                                    <li>
-                                        <a href="forms-text-editor.html">Text Editors</a>
-                                    </li>
-                                    <li>
-                                        <a href="forms-upload.html">Multiple File Upload</a>
-                                    </li>
-                                    <li>
-                                        <a href="forms-datetime-picker.html">Date and Time Picker</a>
-                                    </li>
-                                    <li>
-                                        <a href="forms-color-picker.html">Color Picker</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="#">
-                                    <i class="fas fa-file-image"></i>
-                                    <span>Multimedia </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="media-fancybox.html">
-                                            <span class="label radius-circle bg-danger float-right">cool</span> Fancybox </a>
-                                    </li>
-                                    <li>
-                                        <a href="media-masonry.html">Masonry</a>
-                                    </li>
-                                    <li>
-                                        <a href="media-lightbox.html">Lightbox</a>
-                                    </li>
-                                    <li>
-                                        <a href="media-owl-carousel.html">Owl Carousel</a>
-                                    </li>
-                                    <li>
-                                        <a href="media-image-magnifier.html">Image Magnifier</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="#">
-                                    <i class="fas fa-star"></i>
-                                    <span>Plugins </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="star-rating.html">Star Rating</a>
-                                    </li>
-                                    <li>
-                                        <a href="range-sliders.html">Range Sliders</a>
-                                    </li>
-                                    <li>
-                                        <a href="tree-view.html">Tree View</a>
-                                    </li>
-                                    <li>
-                                        <a href="sweetalert.html">SweetAlert</a>
-                                    </li>
-                                    <li>
-                                        <a href="calendar.html">Calendar</a>
-                                    </li>
-                                    <li>
-                                        <a href="counter-up.html">Counter-Up</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="#">
-                                    <i class="far fa-copy"></i>
-                                    <span>Example Pages </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <a href="page-pricing-tables.html">Pricing Tables</a>
-                                    </li>
-                                    <li>
-                                        <a href="page-timeline.html">Timeline</a>
-                                    </li>
-                                    <li>
-                                        <a href="page-invoice.html">Invoice</a>
-                                    </li>
-                                    <li>
-                                        <a href="page-blank.html">Blank Page</a>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="submenu">
-                                <a href="#">
-                                    <span class="label radius-circle bg-primary float-right">9</span>
-                                    <i class="fas fa-indent"></i>
-                                    <span>Menu Levels </span>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <span>Second Level</span>
-                                        </a>
-                                    </li>
-                                    <li class="submenu">
-                                        <a href="#">
-                                            <span>Third Level</span>
-                                            <span class="menu-arrow"></span>
-                                        </a>
-                                        <ul>
-                                            <li>
-                                                <a href="#">
-                                                    <span>Third Level Item</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span>Third Level Item</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-
-                                <li class="submenu">
-                                    <a class="pro" href="pro.html">
-                                        <i class="fas fa-shopping-cart"></i>
-                                        <span>PRO Version </span>
-                                    </a>
-                                </li>
-
-                                <li class="submenu">
-                                    <a target="_blank" href="https://nura24.com/">
-                                        <i class="fas fa-th"></i>
-                                        <span>Nura24 Free Suite </span>
-                                    </a>
-                                </li>
-
-                            </li>
-
+                            <% } %>
                         </ul>
 
                         <div class="clearfix"></div>
@@ -521,43 +171,43 @@
                 <!-- END container-fluid -->
             </div>
             <!-- END content -->
+             <script src="../URL/dashboard/assets/js/modernizr.min.js"></script>
+        <script src="../URL/dashboard/assets/js/jquery.min.js"></script>
+        <script src="../URL/dashboard/assets/js/moment.min.js"></script>
 
-        </div>
-        <!-- END content-page -->
-        <script src="/URL/dashboard/assets/js/modernizr.min.js"></script>
-        <script src="/URL/dashboard/assets/js/jquery.min.js"></script>
-        <script src="/URL/dashboard/assets/js/moment.min.js"></script>
+        <script src="../URL/dashboard/assets/js/popper.min.js"></script>
+        <script src="../URL/dashboard/assets/js/bootstrap.min.js"></script>
 
-        <script src="/URL/dashboard/assets/js/popper.min.js"></script>
-        <script src="/URL/dashboard/assets/js/bootstrap.min.js"></script>
-
-        <script src="/URL/dashboard/assets/js/detect.js"></script>
-        <script src="/URL/dashboard/assets/js/fastclick.js"></script>
-        <script src="/URL/dashboard/assets/js/jquery.blockUI.js"></script>
-        <script src="/URL/dashboard/assets/js/jquery.nicescroll.js"></script>
+        <script src="../URL/dashboard/assets/js/detect.js"></script>
+        <script src="../URL/dashboard/assets/js/fastclick.js"></script>
+        <script src="../URL/dashboard/assets/js/jquery.blockUI.js"></script>
+        <script src="../URL/dashboard/assets/js/jquery.nicescroll.js"></script>
 
         <!-- App js -->
-        <script src="/URL/dashboard/assets/js/admin.js"></script>
+        <script src="../URL/dashboard/assets/js/admin.js"></script>
+
 
         </div>
         <!-- END main -->
     </form>
-    <!-- BEGIN Java Script for this page -->
-    <script src="/URL/dashboard/assets/plugins/chart.js/Chart.min.js"></script>
-    <script src="/URL/dashboard/assets/plugins/datatables/datatables.min.js"></script>
+    <!-- END content-page -->  
+     <!-- BEGIN Java Script for this page -->
+    <script src="../URL/dashboard/assets/plugins/chart.js/Chart.min.js"></script>
+    <script src="../URL/dashboard/assets/plugins/datatables/datatables.min.js"></script>
 
     <!-- Counter-Up-->
-    <script src="/URL/dashboard/assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
-    <script src="/URL/dashboard/assets/plugins/counterup/jquery.counterup.min.js"></script>
+    <script src="../URL/dashboard/assets/plugins/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="../URL/dashboard/assets/plugins/counterup/jquery.counterup.min.js"></script>
 
     <!-- dataTabled data -->
-    <script src="/URL/dashboard/assets/data/data_datatables.js"></script>
+    <script src="../URL/dashboard/assets/data/data_datatables.js"></script>
 
     <!-- Charts data -->
-    <script src="/URL/dashboard/assets/data/data_charts_dashboard.js"></script>
+    <script src="../URL/dashboard/assets/data/data_charts_dashboard.js"></script>
+    <!-- Charts data --> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
-    <link href="/URL/select2.css" rel="stylesheet" />
+    <link href="../URL/select2.css" rel="stylesheet" />
     <script type="text/javascript">
         $(function () {
             $('.select2').select2({

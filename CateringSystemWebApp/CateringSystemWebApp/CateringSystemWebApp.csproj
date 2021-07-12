@@ -99,6 +99,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ui\add-menu.aspx" />
+    <Content Include="ui\caterer-list.aspx" />
+    <Content Include="ui\customer-list.aspx" />
     <Content Include="ui\index.aspx" />
     <Content Include="ui\menu-list.aspx" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.eot" />
@@ -415,6 +417,20 @@
     </Compile>
     <Compile Include="ui\add-menu.aspx.designer.cs">
       <DependentUpon>add-menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\caterer-list.aspx.cs">
+      <DependentUpon>caterer-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\caterer-list.aspx.designer.cs">
+      <DependentUpon>caterer-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\customer-list.aspx.cs">
+      <DependentUpon>customer-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\customer-list.aspx.designer.cs">
+      <DependentUpon>customer-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="ui\dashboard.Master.cs">
       <DependentUpon>dashboard.Master</DependentUpon>

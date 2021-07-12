@@ -1,64 +1,30 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ui/dashboard.Master" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="CateringSystemWebApp.ui.index" %>
-
-<%@ Import Namespace="CateringSystemWebApp.URL" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ui/dashboard.Master" AutoEventWireup="true" CodeBehind="caterer-list.aspx.cs" Inherits="CateringSystemWebApp.ui.caterer_list" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="card card-body">
-        <h3>Dashboard</h3>
-    </div>
+    <section class="card card-body">
+        <h3>Caterer List</h3>
+    </section>
     <div class="card card-body">
         <div class="row">
-            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                <div class="card-box noradius noborder bg-danger pb-4">
-                    <i class="far fa-user float-right text-white"></i>
-                    <h6 class="text-white text-uppercase m-b-20">Customer</h6>
-                    <h1 class="m-b-20 text-white counter" runat="server" id="totalUser">487</h1>
-                    <span class="text-white"></span>
-                </div>
+            <div class="col-5 col-md-3" style="margin: 0; padding: 0 0 0 15px;">
+                <asp:DropDownList ID="ddlStatus" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlStatus_OnSelectedIndexChanged" runat="server">
+                    <asp:ListItem Value="A">Active</asp:ListItem>
+                    <asp:ListItem Value="I">Inactive</asp:ListItem>
+                </asp:DropDownList>
             </div>
-
-            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                <div class="card-box noradius noborder bg-purple pb-4">
-                    <i class="fas fa-store float-right text-white"></i>
-                    <h6 class="text-white text-uppercase m-b-20">Caterer</h6>
-                    <h1 class="m-b-20 text-white counter" runat="server" id="totalCaterer">290</h1>
-                    <span class="text-white"></span>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                <div class="card-box noradius noborder bg-warning pb-4">
-                    <i class="fas fa-shopping-cart float-right text-white"></i>
-                    <h6 class="text-white text-uppercase m-b-20">Orders</h6>
-                    <h1 class="m-b-20 text-white counter" runat="server" id="totalOrders">320</h1>
-                    <span class="text-white"></span>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-md-6 col-lg-6 col-xl-3">
-                <div class="card-box noradius noborder bg-info pb-4">
-                    <i class="fas fa-hamburger float-right text-white"></i>
-                    <h6 class="text-white text-uppercase m-b-20">Foods</h6>
-                    <h1 class="m-b-20 text-white counter" runat="server" id="totalFoods">58</h1>
-                    <span class="text-white"></span>
-                </div>
+            <div class="col-7 col-md-5" style="margin: 0; padding: 0 15px 0 5px;">
+                <asp:DropDownList ID="ddlUser" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlUser_OnSelectedIndexChanged" runat="server">
+                </asp:DropDownList>
             </div>
         </div>
-    </div>
-    <!-- end row -->
-    <%Function func = Function.GetInstance();
-        if (func.TypeCookie() == "Admin" || func.TypeCookie() == "Moderator")
-        { %>
-    <div class="card card-header">
-        <h3>Pending Caterer List</h3>
     </div>
     <div class="card card-body col-md-12">
         <div class="row">
             <div class="col-12 col-md-12" style="padding-left: 0px">
                 <div class="table-responsive" style="border: none;">
-                    <asp:GridView ID="gridCate" Width="100%" class="table table-hover table-bordered table-striped" Style="background: #ededfb;" OnPageIndexChanging="gridCate_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Caterer Request Found" AllowPaging="True" PageSize="30" runat="server">
+                    <asp:GridView ID="gridCate" Width="100%" class="table table-hover table-bordered table-striped" Style="background: #ededfb;" OnRowDataBound="gridCate_OnRowDataBound" OnPageIndexChanging="gridCate_OnPageIndexChanging" AutoGenerateColumns="False" ShowHeader="True" ShowHeaderWhenEmpty="True" EmptyDataText="No Caterer Found" AllowPaging="True" PageSize="20" runat="server">
                         <Columns>
                             <asp:TemplateField HeaderText="Catering_Name">
                                 <ItemTemplate>
@@ -96,7 +62,7 @@
                                     <asp:Label ID="Label513" runat="server" Text='<%#Eval("TransNo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Reference">
+                             <asp:TemplateField HeaderText="Reference">
                                 <ItemTemplate>
                                     <asp:Label ID="Label515" runat="server" Text='<%#Eval("Amount")%>'></asp:Label>
                                 </ItemTemplate>
@@ -108,7 +74,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Action">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkReject" class="btn btn-danger" OnClick="lnkReject_OnClick" runat="server" ToolTip="Make Inactive"><i class="fas fa-trash-alt fa-lg"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lnkInactive" class="btn btn-danger" OnClick="lnkInactive_OnClick" runat="server" ToolTip="Make Inactive"><i class="fas fa-times fa-lg"></i></asp:LinkButton>
                                     <asp:LinkButton ID="lbkActive" class="btn btn-success" OnClick="lbkActive_OnClick" runat="server" ToolTip="Make Active"><i class="fas fa-check fa-lg"></i></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
@@ -118,5 +84,4 @@
             </div>
         </div>
     </div>
-    <% } %>
 </asp:Content>

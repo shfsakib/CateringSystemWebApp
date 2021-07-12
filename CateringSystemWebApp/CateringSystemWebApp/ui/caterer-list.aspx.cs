@@ -8,11 +8,11 @@ using CateringSystemWebApp.URL;
 
 namespace CateringSystemWebApp.ui
 {
-    public partial class index : System.Web.UI.Page
+    public partial class caterer_list : System.Web.UI.Page
     {
         private Function func;
 
-        public index()
+        public caterer_list()
         {
             func = Function.GetInstance();
         }
@@ -20,9 +20,6 @@ namespace CateringSystemWebApp.ui
         {
             if (!IsPostBack)
             {
-                totalUser.InnerText = func.IsExist($@"SELECT COUNT(Name) FROM Register WHERE Type='Cust' AND Status='A'");
-                totalCaterer.InnerText = func.IsExist($@"SELECT COUNT(Name) FROM Register WHERE Type='Cate' AND Status='A'");
-                totalFoods.InnerText = func.IsExist($@"SELECT COUNT(FoodId) FROM FoodInfo  WHERE Status='A'");
                 Load();
             }
         }
@@ -32,36 +29,74 @@ namespace CateringSystemWebApp.ui
                          Register.TransNo, Register.Amount, Register.Intime, Thana.Thana AS Thana, District.District AS DistrictName
 FROM            Register INNER JOIN
                          Thana ON Register.Thana = Thana.Id INNER JOIN
-                         District ON Register.District = District.Id WHERE Type='Cate' AND  Status='W'";
+                         District ON Register.District = District.Id WHERE Type='Cate' AND  Status='" + ddlStatus.SelectedValue + "'";
             func.LoadGrid(gridCate, query);
+            func.BindDropDown(ddlUser, "Search Caterer", $"SELECT Name +' | '+ Email AS Name, RegId Id FROM Register WHERE Type='Cate' AND Status!='W' ORDER BY Name ASC");
         }
+        protected void ddlStatus_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            Load();
+        }
+
+        protected void ddlUser_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlUser.SelectedIndex != -1)
+            {
+                string query = $"SELECT * FROM Register WHERE Type='Cate' AND  Status='" + ddlStatus.SelectedValue + "' AND RegId='" + ddlUser.SelectedValue + "'";
+                func.LoadGrid(gridCate, query);
+            }
+            else
+            {
+                Load();
+            }
+        }
+
+        protected void gridCate_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                LinkButton linkActive = (LinkButton)e.Row.FindControl("lbkActive");
+                LinkButton linkInactive = (LinkButton)e.Row.FindControl("lnkInactive");
+                if (ddlStatus.Text == "A")
+                {
+                    linkActive.Visible = false;
+                    linkInactive.Visible = true;
+                }
+                else if (ddlStatus.Text == "I")
+                {
+                    linkActive.Visible = true;
+                    linkInactive.Visible = false;
+                }
+            }
+        }
+
         protected void gridCate_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gridCate.PageIndex = e.NewPageIndex;
             Load();
         }
 
-        protected void lnkReject_OnClick(object sender, EventArgs e)
+        protected void lnkInactive_OnClick(object sender, EventArgs e)
         {
             LinkButton lnkInactive = (LinkButton)sender;
             HiddenField hiddenField = (HiddenField)lnkInactive.Parent.FindControl("HiddenField1");
             Label lblEmail = (Label)lnkInactive.Parent.FindControl("lblEmail");
-            bool ans = func.Execute($@"DELETE FROM Register WHERE RegId='{hiddenField.Value}'");
+            bool ans = func.Execute($@"UPDATE Register SET Status='I' WHERE RegId='{hiddenField.Value}'");
             if (ans)
             {
                 Load();
                 bool ans2 = func.SendEmail("foodservice710@gmail.com", lblEmail.Text, "Account",
-                    "<h1>Dear Caterer,</h1><br/>Your account has been rejected by Admin.<br/><b>Thank you</b>",
+                    "<h1>Dear Caterer,</h1><br/>Your account has been blocked by Admin.Please contact with us as soon as possible.<br/><b>Thank you</b>",
                     "*trishucse01205991#");
                 if (ans2)
                 {
-                    func.PopAlert(this, "Caterer request rejected successfully");
+                    func.PopAlert(this, "Caterer inactivate successfully");
                 }
 
             }
             else
             {
-                func.PopAlert(this, "Caterer rejection failed");
+                func.PopAlert(this, "Caterer inactivation failed");
             }
         }
 
@@ -79,13 +114,13 @@ FROM            Register INNER JOIN
                     "*trishucse01205991#");
                 if (ans2)
                 {
-                    func.PopAlert(this, "Caterer activate successfully");
+                    func.PopAlert(this, "Caterer inactivate successfully");
                 }
 
             }
             else
             {
-                func.PopAlert(this, "Caterer activation failed");
+                func.PopAlert(this, "Caterer inactivation failed");
             }
         }
     }
