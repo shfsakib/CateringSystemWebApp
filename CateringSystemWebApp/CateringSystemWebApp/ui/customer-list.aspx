@@ -9,13 +9,13 @@
     <div class="card card-body">
         <div class="row">
             <div class="col-5 col-md-3" style="margin: 0; padding: 0 0 0 15px;">
-                <asp:DropDownList ID="ddlStatus" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlStatus_OnSelectedIndexChanged" runat="server">
+                <asp:DropDownList ID="ddlStatus" class="form-control select2" AutoPostBack="True" OnSelectedIndexChanged="ddlStatus_OnSelectedIndexChanged" runat="server">
                     <asp:ListItem Value="A">Active</asp:ListItem>
                     <asp:ListItem Value="I">Inactive</asp:ListItem>
                 </asp:DropDownList>
             </div>
             <div class="col-7 col-md-5" style="margin: 0; padding: 0 15px 0 5px;">
-                <asp:DropDownList ID="ddlUser" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlUser_OnSelectedIndexChanged" runat="server">
+                <asp:DropDownList ID="ddlUser" class="form-control select2" AutoPostBack="True" OnSelectedIndexChanged="ddlUser_OnSelectedIndexChanged" runat="server">
                 </asp:DropDownList>
             </div>
         </div>

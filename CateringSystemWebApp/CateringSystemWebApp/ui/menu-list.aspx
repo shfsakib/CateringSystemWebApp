@@ -12,7 +12,7 @@
         <div class="card-box pd-20 height-100-p mb-30">
             <div class="row align-items-center">
                 <div class="col-8 col-lg-3 col-md-5 pt-2 pt-lg-0">
-                    <asp:DropDownList ID="ddlFood" CssClass="form-control" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlFood" CssClass="form-control select2" runat="server"></asp:DropDownList>
                 </div>
                 <div class="col-2 col-lg-2 pt-2 pt-lg-0">
                     <asp:Button ID="btnSearchFood" OnClick="btnSearchFood_Click" class="btn btn-warning col-wht" runat="server" Text="Search" />
