@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="user.master.cs" Inherits="CateringSystemWebApp.web.user" %>
 
+<%@ Import Namespace="CateringSystemWebApp.URL" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -40,14 +42,17 @@
     <link rel="stylesheet" href="/URL/user/assets/css/style-default.min.css" media="all" />
     <!-- MODERNIZER CSS  -->
     <script src="/URL/user/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+    <link href="../URL/font-awesome.css" rel="stylesheet" />
+    <script src="../URL/font-awesome.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body class="home">
     <form id="form1" runat="server">
-        <div class="lgx-container ">
+        <div class="lgx-container " style="box-shadow: 1px 1px 10px 1px;">
             <!-- ***  ADD YOUR SITE CONTENT HERE *** -->
             <!--HEADER-->
+            <% HttpCookie cookie = Function.GetCookie(); %>
             <header>
                 <div id="lgx-header" class="lgx-header">
                     <div class="lgx-header-position">
@@ -65,34 +70,48 @@
                                     <div class="lgx-logo lgx-logo-fixed lgx-logo-white">
                                         <!--lgx-logo-default lgx-logo-fixed lgx-logo-white lgx-logo-black-->
                                         <a href="index.html" class="lgx-scroll">
-                                            <img src="/URL/logo.png" alt="Logo" />
+                                            <img src="/URL/logo.png" alt="Logo" style="width: 150px"/>
                                         </a>
                                     </div>
                                 </div>
                                 <div id="navbar" class="navbar-collapse collapse lgx-collapse">
                                     <ul class="nav navbar-nav lgx-nav">
-                                        <li>
-                                            <a href="home.aspx" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-                                            <li>
-                                                <li>
+                                        <%--<li>
                                                     <a href="index.html" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pages <span class="caret"></span></a>
-                                                </li>
-                                                <li><a class="lgx-scroll active" href="#lgx-about">About</a></li>
-                                                <li><a class="lgx-scroll" href="#lgx-menu">Menu</a></li>
-                                                <li><a class="lgx-scroll" href="speacial.html">Speacial</a></li>
-                                                <li><a class="lgx-scroll" href="#lgx-news">News</a></li>
-                                                <li><a class="lgx-scroll btn lgx-btn" href="#lgx-reservation"><span>Reservation</span></a></li>
+                                                    <ul class="dropdown-menu">
+                                                        <li class="dropdown-submenu">
+                                                            <a href="#" class="dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown Two<span class="caret"></span></a>
+                                                            <ul class="dropdown-menu">
+                                                                <li><a href="#">Dropdown Three</a></li>
+                                                                <li><a href="#">Dropdown Three</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><a href="#">Dropdown Two</a></li>
+                                                        <li><a href="#">Dropdown Two</a></li>
+                                                    </ul>
+                                                </li>--%>
+                                        <li><a class="lgx-scroll" href="/web/home.aspx">Home</a></li>
+                                        <li><a class="lgx-scroll" href="/web/menu.aspx">Menu</a></li>
                                     </ul>
                                     <div class="lgx-nav-right">
-                                       <div class="lgx-cart-area">
+                                        <div class="lgx-cart-area">
                                             <a class="lgx-cart" href="#">
                                                 <img src="/URL/user/assets/img/cart-icon.png" alt="cart">
                                                 <span class="notification">2</span>
                                             </a>
                                         </div>
-                                         <div class="lgx-search">
-                                            <a runat="server" OnServerClick="OnServerClick"><i class="fa fa-sign-out-alt"></i></a>
+                                        <% if (cookie != null)
+                                            { %>
+                                        <div class="lgx-cart-area pl-2">
+                                            <a runat="server" class="lgx-cart" onserverclick="OnServerClick"><i class="fas fa-sign-out-alt fa-2x"></i></a>
                                         </div>
+                                        <% }
+                                            else
+                                            { %>
+                                        <div class="lgx-cart-area pl-2">
+                                            <a class="lgx-cart" href="/log-in.aspx"><i class="fas fa-key fa-lg"></i>&nbsp;Log in</a>
+                                        </div>
+                                        <% } %>
                                     </div>
                                 </div>
                                 <!--/.nav-collapse -->
@@ -103,41 +122,14 @@
                 </div>
             </header>
             <!--HEADER END-->
-            <!--BANNER-->
-            <section class="section-gap">
-                <div class="lgx-banner">
-                    <div class="lgx-banner-style">
-                        <div class="lgx-inner lgx-inner-fixed">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <div class="lgx-banner-info">
-                                            <!--lgx-banner-info-center lgx-banner-info-black lgx-banner-info-big lgx-banner-info-bg-->
-                                            <h3 class="subtitle"></h3>
-                                            <h3 class="subtitle"><span id="lgx-typed-string">Delicious Foods</span></h3>
-                                            <h2 class="title">Specialty Of Foods</h2>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--//.ROW-->
-                            </div>
-                            <!-- //.CONTAINER -->
-                        </div>
-                        <!-- //.INNER -->
-                    </div>
-                </div>
-            </section>
-            <!--BANNER END-->
 
             <!--VIDEO-->
             <section class="section-gap">
                 <div id="lgx-about" class="lgx-about" style="background: none;">
                     <!--lgx-about-bottom-->
-                    <div class="lgx-inner">
+                    <div class="lgx-inner" style="padding-top: 0!important">
                         <div class="container">
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                                
                             </asp:ContentPlaceHolder>
                             <!--//.ROW-->
                         </div>

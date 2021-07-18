@@ -29,9 +29,11 @@
                             <span>Food Type</span>
                             <asp:DropDownList ID="ddlFoodType" class="form-control wd-100" runat="server">
                                 <asp:ListItem>Choose Type</asp:ListItem>
-                                <asp:ListItem>Rice</asp:ListItem>
-                                <asp:ListItem>Appetizer</asp:ListItem>
+                                <asp:ListItem>Rice</asp:ListItem> 
                                 <asp:ListItem>Snacks</asp:ListItem> 
+                                <asp:ListItem>Set Meal</asp:ListItem> 
+                                <asp:ListItem>Special Item</asp:ListItem> 
+                                <asp:ListItem>Drinks</asp:ListItem> 
                                 <asp:ListItem>Others</asp:ListItem>
                             </asp:DropDownList>
                         </div>

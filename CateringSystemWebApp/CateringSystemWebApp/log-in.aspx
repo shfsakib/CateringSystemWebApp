@@ -83,7 +83,7 @@
                                     <input type="email" runat="server" id="txtCusEmail" placeholder="Email Address" name="name" />
                                 </div>
                                 <div class="input">
-                                    <span class="fa fa-phone" aria-hidden="true"></span>
+                                    <span class="fa fa-phone fa-flip-horizontal" aria-hidden="true"></span>
                                     <input type="text" runat="server" id="txtCusMobile" placeholder="Mobile Number" name="name" />
                                 </div>
                                 <div class="input">
@@ -119,7 +119,7 @@
                                         <input type="email" runat="server" id="txtCatEmail" placeholder="Email Address" name="name" />
                                     </div>
                                     <div class="input">
-                                        <span class="fa fa-phone" aria-hidden="true"></span>
+                                        <span class="fa fa-phone fa-flip-horizontal" aria-hidden="true"></span>
                                         <input type="text" runat="server" id="txtCatMobile" placeholder="Mobile Number" name="name" />
                                     </div>
                                     <div class="input">

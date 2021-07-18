@@ -11,10 +11,10 @@ namespace CateringSystemWebApp.ui
     public partial class add_menu : System.Web.UI.Page
     {
         private Function func;
-        Random random=new Random();
+        Random random = new Random();
         public add_menu()
         {
-            func=Function.GetInstance();
+            func = Function.GetInstance();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -61,22 +61,28 @@ namespace CateringSystemWebApp.ui
                 if (FileFood.PostedFile != null)
                 {
                     string number = random.Next(111111, 999999).ToString();
-                    string imagePath = Server.MapPath("/photos/") + FileFood.FileName + number + ".png";
+                    string imagePath = Server.MapPath("/photos/") + number + FileFood.FileName + ".png";
                     FileFood.PostedFile.SaveAs(imagePath);
-                    pic = "/photos/" + FileFood.FileName + number + ".png";
+                    pic = "/photos/" + number + FileFood.FileName + ".png";
                 }
                 bool ans =
                     func.Execute(
                         $@"INSERT INTO FoodInfo(FoodName,Quantity,Price,Type,Picture,InTime,CateId,Status) VALUES('{txtFoodName.Text}','{txtQuantity.Text}','{txtPrice.Text}','{ddlFoodType.Text}','{pic}','{func.Date()}','{func.UserIdCookie()}','A')");
                 if (ans)
                 {
-                    func.PopAlert(this,"Food added to menu successfully");
+                    func.PopAlert(this, "Food added to menu successfully");
+                    Refresh();
                 }
                 else
                 {
-                    func.PopAlert(this,"Failed to add");
+                    func.PopAlert(this, "Failed to add");
                 }
             }
+        }
+        private void Refresh()
+        {
+            txtFoodName.Text = txtQuantity.Text = txtPrice.Text = "";
+            ddlFoodType.SelectedIndex = -1;
         }
     }
 }

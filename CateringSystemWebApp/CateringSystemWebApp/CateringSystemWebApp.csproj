@@ -124,6 +124,7 @@
     <Content Include="URL\dashboard\assets\plugins\jquery.filer\assets\fonts\jquery.filer-icons\jquery-filerd41d.eot" />
     <Content Include="URL\image.png" />
     <Content Include="URL\logo.png" />
+    <Content Include="URL\logo1.png" />
     <Content Include="URL\select2.css" />
     <Content Include="URL\user.png" />
     <Content Include="URL\user\assets\img\favicon\manifest.json" />
@@ -150,6 +151,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <Content Include="web\home.aspx" />
+    <Content Include="web\menu.aspx" />
     <Content Include="web\user.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -460,6 +462,13 @@
     </Compile>
     <Compile Include="web\home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\menu.aspx.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\menu.aspx.designer.cs">
+      <DependentUpon>menu.aspx</DependentUpon>
     </Compile>
     <Compile Include="web\user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>

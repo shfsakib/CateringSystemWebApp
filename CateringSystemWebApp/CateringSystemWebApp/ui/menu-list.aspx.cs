@@ -26,15 +26,15 @@ namespace CateringSystemWebApp.ui
 
         private void Load()
         {
-            func.LoadGrid(gridFood, $@"SELECT * FROM FoodInfo ORDER By FoodId DESC");
-            func.BindDropDown(ddlFood, "Search by food name", "SELECT FoodName Name, FoodId Id From FoodInfo ORDER By Name ASC");
+            func.LoadGrid(gridFood, $@"SELECT * FROM FoodInfo WHERE CateId='{func.UserIdCookie()}' ORDER By FoodId DESC");
+            func.BindDropDown(ddlFood, "Search by food name", $"SELECT FoodName Name, FoodId Id From FoodInfo WHERE CateId='{func.UserIdCookie()}' ORDER By Name ASC");
 
         }
         protected void btnSearchFood_Click(object sender, EventArgs e)
         {
             if (ddlFood.SelectedIndex != -1)
             {
-                func.LoadGrid(gridFood, $@"SELECT * FROM FoodInfo WHERE FoodId='{ddlFood.SelectedValue}' ORDER By FoodId DESC");
+                func.LoadGrid(gridFood, $@"SELECT * FROM FoodInfo WHERE FoodId='{ddlFood.SelectedValue}' AND CateId='{func.UserIdCookie()}' ORDER By FoodId DESC");
             }
             else
             {

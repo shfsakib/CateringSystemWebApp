@@ -242,6 +242,26 @@ namespace CateringSystemWebApp.URL
                 if (con.State != ConnectionState.Closed) con.Close();
             }
         }
+        public void LoadRepeater(Repeater ob, string query)
+        {
+            DataTable table = new DataTable();
+            SqlConnection con = new SqlConnection(Connection);
+            try
+            {
+                ob.Visible = true;
+                if (con.State != ConnectionState.Open) con.Open();
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(table);
+                ob.DataSource = table;
+                ob.DataBind();
+                if (con.State != ConnectionState.Closed) con.Close();
+            }
+            catch (Exception ex)
+            {
+                if (con.State != ConnectionState.Closed) con.Close();
+            }
+        }
         public void LoadDataList(DataList ob, string query)
         {
             DataTable table = new DataTable();
