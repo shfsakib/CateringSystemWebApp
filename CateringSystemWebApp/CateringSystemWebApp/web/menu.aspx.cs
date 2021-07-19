@@ -20,10 +20,28 @@ namespace CateringSystemWebApp.web
         {
             if (!IsPostBack)
             {
-                func.LoadRepeater(menuItem, "SELECT * FROM FoodInfo WHERE Status='A' ORDER BY NEWID()"); 
+                Load();
             }
         }
 
-        
+        private void Load()
+        {
+            func.LoadRepeater(menuItem, "SELECT * FROM FoodInfo WHERE Status='A' ORDER BY NEWID()");
+            func.BindDropDown(ddlFood,"Search by food name", "SELECT FoodName Name,FoodId Id FROM FoodInfo WHERE Status='A' ORDER BY Name ASC");
+
+        }
+
+        protected void ddlFood_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlFood.SelectedIndex >0)
+            {
+                func.LoadRepeater(menuItem,
+                    $"SELECT * FROM FoodInfo WHERE Status='A' AND FoodId='{ddlFood.SelectedValue}' ORDER BY NEWID()");
+            }
+            else
+            {
+                Load();
+            }
+        }
     }
 }

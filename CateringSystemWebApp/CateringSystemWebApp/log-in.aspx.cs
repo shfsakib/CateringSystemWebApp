@@ -40,7 +40,7 @@ namespace CateringSystemWebApp
                 }
                 else
                 {
-                    Response.Redirect("/web/home.aspx");
+
                     txtlogEmail.Focus();
                     func.BindDropDown(ddlDis, "DIstrict", $@"SELECT District Name, Id FROM District ORDER BY Name ASC");
                     func.BindDropDown(ddlThana, "Thana", $@"SELECT DISTINCT Thana Name,Id FROM Thana ORDER BY Name ASC");

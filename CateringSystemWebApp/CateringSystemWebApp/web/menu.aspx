@@ -13,7 +13,7 @@
                                 <div class="lgx-heading lgx-heading-white">
                                     <h2 class="heading-title">Menu</h2>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -23,8 +23,14 @@
             </div>
             <!-- //.INNER -->
         </div>
-    </section> 
+    </section>
+    <div class="row" style="padding-top: 40px">
+        <div class="col-lg-5 p-4">
+            <asp:DropDownList ID="ddlFood" AutoPostBack="True" OnSelectedIndexChanged="ddlFood_OnSelectedIndexChanged" class="form-control select2" runat="server"></asp:DropDownList>
+        </div>
+    </div>
     <div class="row" style="padding-top: 40px;">
+
         <div class="col-12">
             <asp:Repeater ID="menuItem" runat="server">
                 <ItemTemplate>

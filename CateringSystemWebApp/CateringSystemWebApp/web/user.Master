@@ -70,7 +70,7 @@
                                     <div class="lgx-logo lgx-logo-fixed lgx-logo-white">
                                         <!--lgx-logo-default lgx-logo-fixed lgx-logo-white lgx-logo-black-->
                                         <a href="index.html" class="lgx-scroll">
-                                            <img src="/URL/logo.png" alt="Logo" style="width: 150px"/>
+                                            <img src="/URL/logo.png" alt="Logo" style="width: 150px" />
                                         </a>
                                     </div>
                                 </div>
