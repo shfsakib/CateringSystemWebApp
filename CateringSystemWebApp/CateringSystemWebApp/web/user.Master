@@ -46,14 +46,24 @@
     <script src="../URL/font-awesome.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+        }
+    </style>
 </head>
 <body class="home">
     <form id="form1" runat="server">
-        <div class="lgx-container " style="box-shadow: 1px 1px 10px 1px;">
+        <div class="lgx-container">
             <!-- ***  ADD YOUR SITE CONTENT HERE *** -->
             <!--HEADER-->
             <% HttpCookie cookie = Function.GetCookie(); %>
-            <header>
+            <header style="box-shadow: 1px 1px 10px 1px;">
                 <div id="lgx-header" class="lgx-header">
                     <div class="lgx-header-position">
                         <!--lgx-header-position-fixed lgx-header-position-white lgx-header-fixed-container lgx-header-fixed-container-gap lgx-header-position-white-->
@@ -95,9 +105,9 @@
                                     </ul>
                                     <div class="lgx-nav-right">
                                         <div class="lgx-cart-area">
-                                            <a class="lgx-cart" href="#">
+                                            <a class="lgx-cart" href="/web/view-cart.aspx">
                                                 <img src="/URL/user/assets/img/cart-icon.png" alt="cart">
-                                                <span class="notification">2</span>
+                                                <span class="notification"><%=Session["count"].ToString() %></span>
                                             </a>
                                         </div>
                                         <% if (cookie != null)

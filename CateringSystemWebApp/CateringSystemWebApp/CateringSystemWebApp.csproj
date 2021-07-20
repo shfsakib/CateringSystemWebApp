@@ -144,6 +144,7 @@
     <Content Include="URL\login\fonts\fontawesome-webfont3e6e.woff2" />
     <Content Include="URL\login\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="ui\dashboard.Master" />
+    <Content Include="web\view-cart.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,6 +153,7 @@
     </None>
     <Content Include="web\home.aspx" />
     <Content Include="web\menu.aspx" />
+    <Content Include="web\order-food.aspx" />
     <Content Include="web\user.Master" />
   </ItemGroup>
   <ItemGroup>
@@ -470,12 +472,26 @@
     <Compile Include="web\menu.aspx.designer.cs">
       <DependentUpon>menu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web\order-food.aspx.cs">
+      <DependentUpon>order-food.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\order-food.aspx.designer.cs">
+      <DependentUpon>order-food.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="web\user.Master.designer.cs">
       <DependentUpon>user.Master</DependentUpon>
+    </Compile>
+    <Compile Include="web\view-cart.aspx.cs">
+      <DependentUpon>view-cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\view-cart.aspx.designer.cs">
+      <DependentUpon>view-cart.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

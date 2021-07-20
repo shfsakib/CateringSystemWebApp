@@ -14,11 +14,21 @@ namespace CateringSystemWebApp.web
 
         public user()
         {
-            func=Function.GetInstance();
+            func = Function.GetInstance();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (Session["count"] == null)
+                {
+                    Session["count"] = 0;
+                }
+                if (Session["address"] == null)
+                {
+                    Session["address"] = "";
+                }
+            }
         }
 
         protected void OnServerClick(object sender, EventArgs e)

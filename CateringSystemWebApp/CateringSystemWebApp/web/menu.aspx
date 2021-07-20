@@ -34,23 +34,26 @@
         <div class="col-12">
             <asp:Repeater ID="menuItem" runat="server">
                 <ItemTemplate>
-                    <div class="col-6 col-xs-12 col-sm-6 col-md-4 lgx-single-speacial lgx-card-single">
-                        <figure>
-                            <a href="#">
+                    <a runat="server" id="viewCaterer" onserverclick="viewCaterer_OnServerClick">
+                        <div class="col-6 col-xs-12 col-sm-6 col-md-4 lgx-single-speacial lgx-card-single">
+                            <figure>
+
+                                <asp:HiddenField ID="CateId" runat="server" Value='<%#Eval("CateId")%>' />
                                 <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("FoodId")%>' />
 
                                 <img src='<%#Eval("Picture") %>' style="min-height: 270px" alt="Offers" />
-                            </a>
-                            <figcaption>
-                                <div class="speacial-price" style="font-size: 20px">
-                                    <%#"৳"+Eval("Price") %>
-                                </div>
-                            </figcaption>
-                        </figure>
-                        <div class="speacial-info">
-                            <h3 class="title text-primary"><a href="#"><%#Eval("FoodName") %></a></h3>
+
+                                <figcaption>
+                                    <div class="speacial-price" style="font-size: 20px">
+                                        <%#"৳"+Eval("Price") %>
+                                    </div>
+                                </figcaption>
+                            </figure>
+                            <div class="speacial-info">
+                                <h3 class="title text-primary"><%#Eval("FoodName") %></h3>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </ItemTemplate>
             </asp:Repeater>
 
