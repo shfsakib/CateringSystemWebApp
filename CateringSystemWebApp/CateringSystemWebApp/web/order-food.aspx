@@ -63,7 +63,8 @@
                             <div class="lgx-heading-area">
                                 <div class="lgx-heading lgx-heading-white">
                                     <h2 class="heading-title" id="shopName" runat="server">ShopName</h2>
-                                    <h4 id="rating" style="color: white; font-size: 18px;" runat="server"><i class="fas fa-star text-warning"></i>4(5)</h4>
+                                    <h4 id="rating" style="color: white; font-size: 18px;" runat="server"><i class="fas fa-star text-warning"></i>
+                                        <asp:Label ID="lblRating" runat="server" Text="Label"></asp:Label></h4>
                                 </div>
                             </div>
                         </div>

@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -98,11 +102,19 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Rating\FilledStar.gif" />
+    <Content Include="Rating\FilledStar.png" />
+    <Content Include="Rating\Star.gif" />
+    <Content Include="Rating\star.png" />
+    <Content Include="Rating\WaitingStar.gif" />
+    <Content Include="Rating\WaitingStar.png" />
     <Content Include="ui\add-menu.aspx" />
     <Content Include="ui\caterer-list.aspx" />
+    <Content Include="ui\completed-order.aspx" />
     <Content Include="ui\customer-list.aspx" />
     <Content Include="ui\index.aspx" />
     <Content Include="ui\menu-list.aspx" />
+    <Content Include="ui\pending-orders.aspx" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.eot" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.ttf" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.woff" />
@@ -144,7 +156,12 @@
     <Content Include="URL\login\fonts\fontawesome-webfont3e6e.woff2" />
     <Content Include="URL\login\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="ui\dashboard.Master" />
+    <Content Include="web\completed-order.aspx" />
+    <Content Include="web\pay-order.aspx" />
+    <Content Include="web\pending-payment.aspx" />
+    <Content Include="web\rate-caterer.aspx" />
     <Content Include="web\view-cart.aspx" />
+    <Content Include="web\waiting-order.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -429,6 +446,13 @@
     <Compile Include="ui\caterer-list.aspx.designer.cs">
       <DependentUpon>caterer-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ui\completed-order.aspx.cs">
+      <DependentUpon>completed-order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\completed-order.aspx.designer.cs">
+      <DependentUpon>completed-order.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ui\customer-list.aspx.cs">
       <DependentUpon>customer-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -457,7 +481,21 @@
     <Compile Include="ui\menu-list.aspx.designer.cs">
       <DependentUpon>menu-list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ui\pending-orders.aspx.cs">
+      <DependentUpon>pending-orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\pending-orders.aspx.designer.cs">
+      <DependentUpon>pending-orders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="URL\Function.cs" />
+    <Compile Include="web\completed-order.aspx.cs">
+      <DependentUpon>completed-order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\completed-order.aspx.designer.cs">
+      <DependentUpon>completed-order.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -479,6 +517,27 @@
     <Compile Include="web\order-food.aspx.designer.cs">
       <DependentUpon>order-food.aspx</DependentUpon>
     </Compile>
+    <Compile Include="web\pay-order.aspx.cs">
+      <DependentUpon>pay-order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\pay-order.aspx.designer.cs">
+      <DependentUpon>pay-order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\pending-payment.aspx.cs">
+      <DependentUpon>pending-payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\pending-payment.aspx.designer.cs">
+      <DependentUpon>pending-payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\rate-caterer.aspx.cs">
+      <DependentUpon>rate-caterer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\rate-caterer.aspx.designer.cs">
+      <DependentUpon>rate-caterer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\user.Master.cs">
       <DependentUpon>user.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -492,6 +551,13 @@
     </Compile>
     <Compile Include="web\view-cart.aspx.designer.cs">
       <DependentUpon>view-cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\waiting-order.aspx.cs">
+      <DependentUpon>waiting-order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\waiting-order.aspx.designer.cs">
+      <DependentUpon>waiting-order.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

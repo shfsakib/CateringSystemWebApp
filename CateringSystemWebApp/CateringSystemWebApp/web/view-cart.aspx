@@ -25,7 +25,7 @@
         </div>
     </section>
     <div class="row" style="padding-top: 40px;">
-        <div class="col-12 table-responsive" style="height: auto;max-height: 500px; overflow-y: auto; ">
+        <div class="col-12 table-responsive" style="height: auto; max-height: 500px; overflow-y: auto;">
             <asp:GridView ID="gridFood" class="table table-bordered" Style="background: #f3f3f3;" AutoGenerateColumns="False" ShowHeader="False" ShowHeaderWhenEmpty="True" EmptyDataText="No Food Found" runat="server">
                 <Columns>
                     <asp:TemplateField>
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="col-9 col-lg-6">
                                         <asp:HiddenField ID="foodId" runat="server" Value='<%#Eval("FoodId") %>' />
-                                        <asp:HiddenField ID="shopId" runat="server" Value='<%#Eval("CateId") %>' />
+                                        <asp:HiddenField ID="cateId" runat="server" Value='<%#Eval("CateId") %>' />
                                         <h4>
                                             <asp:Label runat="server" ID="lblName" Text='<%#Eval("FoodName")%>'></asp:Label></h4>
                                         <p class="mp">
@@ -61,11 +61,11 @@
         <div class="col-12">
             <table class="table table-striped" width="100%" style="position: relative; top: 20px; overflow-y: hidden;">
                 <tr>
-                    <td>Total <span style="color: #495057; font-size: 10px;">(incl. VAT)</span>
+                    <td><strong>Total</strong> <span style="color: #495057; font-size: 10px;"></span>
                     </td>
-                    <td class="text-right">
-                        <span>Tk </span>
-                        <asp:Label ID="lblTotal" runat="server" Text="0"></asp:Label>
+                    <td class="text-right" style="font-size: 22px !Important;">
+                        <strong><span>Tk </span>
+                            <asp:Label ID="lblTotal" runat="server" Text="0"></asp:Label></strong>
                     </td>
                 </tr>
             </table>

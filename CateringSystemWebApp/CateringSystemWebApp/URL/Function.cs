@@ -100,7 +100,7 @@ namespace CateringSystemWebApp.URL
                     result = false;
                 if (Conn.State != ConnectionState.Closed) Conn.Close();
             }
-            catch { if (Conn.State != ConnectionState.Closed) Conn.Close(); }
+            catch(Exception ex) { if (Conn.State != ConnectionState.Closed) Conn.Close(); }
             return result;
         }
         public string IsExist(string str)
@@ -208,7 +208,7 @@ namespace CateringSystemWebApp.URL
         }
         public void AlertWithRedirect(Page page, string msg, string link)
         {
-            ScriptManager.RegisterStartupScript(page, page.GetType(), "script", "alert('" + msg + "');setTimeout(function(){location.replace('" + link + "')},800);", true);
+            ScriptManager.RegisterStartupScript(page, page.GetType(), "script", "alert(`" + msg + "`);setTimeout(function(){location.replace('" + link + "')},800);", true);
         }
         public bool EmailValidation(string email)
         {

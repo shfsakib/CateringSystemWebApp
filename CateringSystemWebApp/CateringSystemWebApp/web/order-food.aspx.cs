@@ -25,6 +25,11 @@ namespace CateringSystemWebApp.web
         {
             if (!IsPostBack)
             {
+                if (Request.QueryString.Count <= 0)
+                {
+                    Response.Redirect("/web/home.aspx");
+                    return;
+                }
                 id = Request.QueryString["id"];
                 string type = func.IsExist($"SELECT DISTINCT TOP 1 Type FROM FoodInfo WHERE CateId='{id}' ORDER By TYPE ASC");
                 LoadMenu(type);
@@ -34,6 +39,9 @@ namespace CateringSystemWebApp.web
                     gridTemp.DataBind();
                     Session["count"] = (Convert.ToInt32(gridTemp.Rows.Count)).ToString();
                 }
+                string rating = func.IsExist($@"SELECT SUM(Rate)/COUNT(Rate) AS Rating FROM Rating WHERE RatedId='{id}'");
+                string count = func.IsExist($@"SELECT COUNT(Rate) AS Count FROM Rating WHERE RatedId='{id}'");
+                lblRating.Text = rating + "(" + count + ")";
             }
         }
 
@@ -63,6 +71,9 @@ namespace CateringSystemWebApp.web
                 dataTable.Columns.Add("Price", typeof(double));
                 dataTable.Columns.Add("Picture", typeof(string));
                 Session["dataGrid"] = dataTable;
+                gridTemp.DataSource = Session["dataGrid"];
+                gridTemp.DataBind();
+                Session["count"] = "0";
             }
             else
             {
@@ -120,11 +131,12 @@ namespace CateringSystemWebApp.web
                     dataTable.Rows[j].Delete();
                     break;
                 }
-                //if (Convert.ToInt32(shopOId) != cateId)
-                //{
-                //    Session["dataGrid"] = null;
-                //    break;
-                //}
+                if (Convert.ToInt32(shopOId) != cateId)
+                {
+                    Session["dataGrid"] = null;
+                    LoadSession();
+                    break;
+                }
             }
             dataTable = (DataTable)gridTemp.DataSource;
             Session["dataGrid"] = dataTable;

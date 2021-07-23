@@ -23,6 +23,7 @@ namespace CateringSystemWebApp.ui
                 totalUser.InnerText = func.IsExist($@"SELECT COUNT(Name) FROM Register WHERE Type='Cust' AND Status='A'");
                 totalCaterer.InnerText = func.IsExist($@"SELECT COUNT(Name) FROM Register WHERE Type='Cate' AND Status='A'");
                 totalFoods.InnerText = func.IsExist($@"SELECT COUNT(FoodId) FROM FoodInfo  WHERE Status='A'");
+                totalOrders.InnerText= func.IsExist($@"SELECT COUNT(OrderInvoice) FROM OrderList WHERE Status='C'");
                 Load();
             }
         }

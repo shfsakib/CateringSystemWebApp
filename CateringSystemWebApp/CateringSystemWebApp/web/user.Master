@@ -102,6 +102,14 @@
                                                 </li>--%>
                                         <li><a class="lgx-scroll" href="/web/home.aspx">Home</a></li>
                                         <li><a class="lgx-scroll" href="/web/menu.aspx">Menu</a></li>
+                                        <li>
+                                            <a href="index.html" class="" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order List<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="/web/pending-payment.aspx">Pending Order Payment</a></li>
+                                                <li><a href="/web/waiting-order.aspx">Waiting Orders</a></li>
+                                                <li><a href="/web/completed-order.aspx">Completed Orders</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                     <div class="lgx-nav-right">
                                         <div class="lgx-cart-area">

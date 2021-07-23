@@ -39,6 +39,8 @@ namespace CateringSystemWebApp.web
         {
             gridFood.DataSource = Session["dataGrid"];
             gridFood.DataBind();
+            CalculateSum();
+
         }
         protected void lnkRemove_OnClick(object sender, EventArgs e)
         {
@@ -87,6 +89,28 @@ namespace CateringSystemWebApp.web
             if (txtAddress.Text == "")
             {
                 func.PopAlert(this, "Delivery location is required");
+            }
+            else
+            {
+                bool ans = false;
+                ViewState["invoice"] = func.GenerateInvoice(@"SELECT Max(SUBSTRING(OrderInvoice, 9, 4)) FROM OrderList");
+                foreach (GridViewRow row in gridFood.Rows)
+                {
+                    HiddenField foodId = (HiddenField)row.FindControl("foodId");
+                    HiddenField cateId = (HiddenField)row.FindControl("cateId");
+                    ViewState["cateId"] = cateId.Value;
+                    Label lblQuantity = (Label)row.FindControl("lblQuantity");
+                    Label lblPrice = (Label)row.FindControl("lblPrice");
+                    ans =func.Execute($@"INSERT INTO OrderList(OrderInvoice,CustId,CateId,FoodId,Quantity,Price,Total,DeliveryLocation,Status,Ordertime) VALUES('{ViewState["invoice"]}','{func.UserIdCookie()}','{cateId.Value}','{foodId.Value}','{lblQuantity.Text}','{lblPrice.Text}','{lblTotal.Text}','{txtAddress.Text}','PP','{func.Date()}')");
+                }
+                if (ans)
+                {
+                    func.AlertWithRedirect(this, "Order placed successfully,Please pay order price to confirm order otherwise your order won't be visible to caterer", "/web/pay-order.aspx?invoice="+ ViewState["invoice"].ToString() + "&cateId="+ ViewState["cateId"].ToString() + "&total=" +lblTotal.Text+"" );
+                }
+                else
+                {
+                    func.PopAlert(this, "Failed to place order");
+                }
             }
         }
     }

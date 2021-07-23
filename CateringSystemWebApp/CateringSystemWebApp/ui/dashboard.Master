@@ -122,6 +122,22 @@
 
                                 </ul>
                             </li>
+                            <li class="submenu">
+                                <a href="#">
+                                    <i class="fas fa-book"></i>
+                                    <span>Order List</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="/ui/pending-orders.aspx">Pending Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ui/completed-order.aspx">Completed Order</a>
+                                    </li>
+
+                                </ul>
+                            </li>
                             <% }
                                 else if (func.TypeCookie() == "Admin")
                                 { %>
