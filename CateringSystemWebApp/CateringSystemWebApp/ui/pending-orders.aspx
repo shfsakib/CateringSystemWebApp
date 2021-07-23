@@ -24,7 +24,7 @@
                                                 <h3>#<asp:Label runat="server" ID="lblInvoice" Text='<%#Eval("OrderInvoice")%>'></asp:Label></h3>
                                                 <h4>
                                                     <asp:Label runat="server" ID="Label7" Text='<%#"Ordered by "+Eval("CustName")%>'></asp:Label></h4>
-                                               <p class="mp">
+                                                <p class="mp">
                                                     <asp:GridView ID="gridFood" class="table table-bordered" Width="100%" Style="background: #f3f3f3;" AutoGenerateColumns="False" ShowHeader="False" ShowHeaderWhenEmpty="True" EmptyDataText="No Food Found" runat="server">
                                                         <Columns>
                                                             <asp:TemplateField>
@@ -68,9 +68,14 @@
                                                 <asp:Label ID="Label6" runat="server" Text='<%#Eval("DeliveryLocation")%>'></asp:Label>
                                                     </p>
                                                 </h4>
-                                                <p class="mp row">
+                                                <p class="mp">
                                                     <asp:LinkButton ID="lnkAccept" CssClass="btn btn-primary" runat="server" OnClick="lnkAccept_OnClick"><i class="fas fa-check"></i>&nbsp;Accept Order</asp:LinkButton>
-                                                    <asp:LinkButton ID="lnkReject" CssClass="btn btn-danger" style="margin-left: 5px;" runat="server" OnClick="lnkReject_OnClick"><i class="fas fa-trash-alt"></i>&nbsp;Reject Order</asp:LinkButton>
+                                                    <asp:LinkButton ID="lnkReject" CssClass="btn btn-danger" Style="margin-left: 5px;" runat="server" OnClick="lnkReject_OnClick"><i class="fas fa-trash-alt"></i>&nbsp;Reject Order</asp:LinkButton>
+                                                </p>
+                                                <p class="mp" style="margin-top: 10px;">
+                                                    <a id="lnlCall" class="btn btn-success" href='<%#"tel:"+Eval("CustMobile")%>' runat="server"><i class="fas fa-phone-alt"></i>&nbsp;Call Customer</a>
+                                                    <a id="lnkMail" class="btn btn-warning" href='<%#"mailto:"+Eval("CustEmail")%>' runat="server"><i class="far fa-envelope"></i>&nbsp;Mail Customer</a>
+
                                                 </p>
                                             </div>
                                         </div>

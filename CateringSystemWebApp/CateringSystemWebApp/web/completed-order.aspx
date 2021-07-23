@@ -72,9 +72,14 @@
                                                 <asp:Label ID="Label6" runat="server" Text='<%#Eval("DeliveryLocation")%>'></asp:Label>
                                             </p>
                                         </h4>
-                                        <p class="mp row">
+                                        <p class="mp">
                                             <a runat="server" id="btnRate" class="btn btn-primary col-5 mt2" OnServerClick="btnRate_OnServerClick"><i class="fas fa-star"></i>&nbsp;&nbsp;Rate Caterer</a>
                                             <a runat="server" id="btnReport" class="btn btn-warning col-5 mt2 ml2" href="mailto:foodservice710@gmail.com"><i class="fas fa-exclamation-triangle text-warning"></i>&nbsp;&nbsp;Report Caterer</a>
+                                        </p>
+                                         <p class="mp" style="margin-top: 10px;">
+                                            <a ID="lnlCall" class="btn btn-success" href='<%#"tel:"+Eval("CateMobile")%>' runat="server"><i class="fas fa-phone-alt"></i>&nbsp;Call Caterer</a>
+                                            <a ID="lnkMail" class="btn btn-warning" href='<%#"mailto:"+Eval("CateEmail")%>' runat="server"><i class="far fa-envelope"></i>&nbsp;Mail Caterer</a>
+
                                         </p>
                                     </div>
                                 </div>

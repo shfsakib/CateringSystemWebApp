@@ -73,10 +73,17 @@
                                                 <asp:Label ID="Label6" runat="server" Text='<%#Eval("DeliveryLocation")%>'></asp:Label>
                                             </p>
                                         </h4>
-                                        <p class="mp row">
-                                            <a runat="server" id="btnRider" class="btn btn-primary col-5 mt2" href='<%#"/web/pay-order.aspx?invoice="+Eval("OrderInvoice")+"&cateId="+Eval("CustId")+ "&total=" +Eval("Total") %>'><i class="fas fa-wallet"></i>&nbsp;&nbsp;Pay Bill</a>
-                                            <a runat="server" id="btnCancel" class="btn btn-danger col-5 mt2 ml2" OnServerClick="btnCancel_OnServerClick"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel Order</a>
+                                       <p class="mp row">
+                                            <a ID="lnlCall" class="btn btn-success" href='<%#"tel:"+Eval("CateMobile")%>' runat="server"><i class="fas fa-phone-alt"></i>&nbsp;Call Caterer</a>
+                                            <a ID="lnkMail" class="btn btn-warning" href='<%#"mailto:"+Eval("CateEmail")%>' runat="server"><i class="far fa-envelope"></i>&nbsp;Mail Caterer</a>
+
                                         </p>
+                                        <p class="mp" style="margin-top: 10px;">
+                                            <a runat="server" id="btnRider" class="btn btn-primary col-5 mt2" href='<%#"/web/pay-order.aspx?invoice="+Eval("OrderInvoice")+"&cateId="+Eval("CustId")+ "&total=" +Eval("Total") %>'><i class="fas fa-wallet"></i>&nbsp;&nbsp;Pay Bill</a>
+                                            <a runat="server" id="btnCancel" class="btn btn-danger col-5 mt2 ml2" onserverclick="btnCancel_OnServerClick"><i class="fas fa-times"></i>&nbsp;&nbsp;Cancel Order</a>
+
+                                        </p>
+
                                     </div>
                                 </div>
                             </div>

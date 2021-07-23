@@ -27,7 +27,7 @@ namespace CateringSystemWebApp.web
         private void Load()
         {
             string query = $@"SELECT DISTINCT  OrderList.CateId, OrderList.CustId, OrderList.OrderInvoice, OrderList.Total, OrderList.DeliveryLocation,  Register.Name AS CateringName, Register.District, 
-                         Register.Thana,   District.District AS DistrictName, Thana.Thana AS ThanaName, Register_1.Picture AS CustPicture, Register_1.Name AS CustName
+                         Register.Thana,Register.MobileNo AS CateMobile ,Register.Email AS CateEmail,   District.District AS DistrictName, Thana.Thana AS ThanaName, Register_1.Picture AS CustPicture, Register_1.Name AS CustName
 FROM            OrderList INNER JOIN
                          Register ON OrderList.CateId = Register.RegId INNER JOIN
                          District ON Register.District = District.Id INNER JOIN

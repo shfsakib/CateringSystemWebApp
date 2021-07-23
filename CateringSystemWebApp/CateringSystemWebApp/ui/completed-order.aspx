@@ -68,6 +68,11 @@
                                                 <asp:Label ID="Label6" runat="server" Text='<%#Eval("DeliveryLocation")%>'></asp:Label>
                                                     </p>
                                                 </h4>
+                                                <p class="mp" style="margin-top: 10px;">
+                                                    <a id="lnlCall" class="btn btn-success" href='<%#"tel:"+Eval("CustMobile")%>' runat="server"><i class="fas fa-phone-alt"></i>&nbsp;Call Customer</a>
+                                                    <a id="lnkMail" class="btn btn-warning" href='<%#"mailto:"+Eval("CustEmail")%>' runat="server"><i class="far fa-envelope"></i>&nbsp;Mail Customer</a>
+
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
