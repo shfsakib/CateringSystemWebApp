@@ -52,15 +52,23 @@ namespace CateringSystemWebApp.ui
         {
             LinkButton lnkRemove = (LinkButton)sender;
             HiddenField foodId = (HiddenField)lnkRemove.Parent.FindControl("HiddenField1");
-            bool ans = func.Execute($@"DELETE FROM FoodInfo WHERE FoodId='{foodId.Value}'");
-            if (ans)
+            string x = func.IsExist($@"SELECT FOODId FROM ORDERLIST WHERE FoodId='{foodId.Value}'");
+            if (x != "")
             {
-                func.PopAlert(this, "Removed successfully");
-                Load();
+                func.PopAlert(this, "This item can not be removed because it has an order invoice");
             }
             else
             {
-                func.PopAlert(this, "Removed failed");
+                bool ans = func.Execute($@"DELETE FROM FoodInfo WHERE FoodId='{foodId.Value}'");
+                if (ans)
+                {
+                    func.PopAlert(this, "Removed successfully");
+                    Load();
+                }
+                else
+                {
+                    func.PopAlert(this, "Removed failed");
+                }
             }
         }
 
