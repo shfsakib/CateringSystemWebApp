@@ -8,11 +8,11 @@ using CateringSystemWebApp.URL;
 
 namespace CateringSystemWebApp.ui
 {
-    public partial class caterer_list : System.Web.UI.Page
+    public partial class admin_list : System.Web.UI.Page
     {
         private Function func;
 
-        public caterer_list()
+        public admin_list()
         {
             func = Function.GetInstance();
         }
@@ -25,13 +25,9 @@ namespace CateringSystemWebApp.ui
         }
         private void Load()
         {
-            string query = @"SELECT        Register.RegId, Register.Name, Register.Email, Register.MobileNo, Register.Type, Register.Gender, Register.Dob,  Register.Password, Register.Picture, Register.Status, Register.BkashNo, 
-                         Register.TransNo, Register.Amount, Register.Intime, Thana.Thana AS Thana, District.District AS DistrictName
-FROM            Register INNER JOIN
-                         Thana ON Register.Thana = Thana.Id INNER JOIN
-                         District ON Register.District = District.Id WHERE Type='Cate' AND  Status='" + ddlStatus.SelectedValue + "'";
-            func.LoadGrid(gridCate, query);
-            func.BindDropDown(ddlUser, "Search Caterer", $"SELECT Name +' | '+ Email AS Name, RegId Id FROM Register WHERE Type='Cate' AND Status!='W' ORDER BY Name ASC");
+            string query = "SELECT * FROM Register WHERE Type!='Cust' AND Type!='Cate' AND  Status='" + ddlStatus.SelectedValue + "'";
+            func.LoadGrid(gridCus, query);
+            func.BindDropDown(ddlUser, "Search Customer", $"SELECT Name +' | '+ Email AS Name, RegId Id FROM Register WHERE Type!='Cust' AND Type!='Cate' ORDER BY Name ASC");
         }
         protected void ddlStatus_OnSelectedIndexChanged(object sender, EventArgs e)
         {
@@ -42,8 +38,8 @@ FROM            Register INNER JOIN
         {
             if (ddlUser.SelectedIndex != -1)
             {
-                string query = $"SELECT * FROM Register WHERE Type='Cate' AND  Status='" + ddlStatus.SelectedValue + "' AND RegId='" + ddlUser.SelectedValue + "'";
-                func.LoadGrid(gridCate, query);
+                string query = $"SELECT * FROM Register WHERE Type!='Cust' AND Type!='Cate' AND  Status='" + ddlStatus.SelectedValue + "' AND RegId='" + ddlUser.SelectedValue + "'";
+                func.LoadGrid(gridCus, query);
             }
             else
             {
@@ -51,7 +47,7 @@ FROM            Register INNER JOIN
             }
         }
 
-        protected void gridCate_OnRowDataBound(object sender, GridViewRowEventArgs e)
+        protected void gridCus_OnRowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -70,9 +66,9 @@ FROM            Register INNER JOIN
             }
         }
 
-        protected void gridCate_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void gridCus_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gridCate.PageIndex = e.NewPageIndex;
+            gridCus.PageIndex = e.NewPageIndex;
             Load();
         }
 
@@ -85,18 +81,11 @@ FROM            Register INNER JOIN
             if (ans)
             {
                 Load();
-                bool ans2 = func.SendEmail("foodservice710@gmail.com", lblEmail.Text, "Account",
-                    "<h1>Dear Caterer,</h1><br/>Your account has been blocked by Admin.Please contact with us as soon as possible.<br/><b>Thank you</b>",
-                    "*trishucse01205991#");
-                if (ans2)
-                {
-                    func.PopAlert(this, "Caterer inactivate successfully");
-                }
-
+                func.PopAlert(this, "Inactivate successfully");
             }
             else
             {
-                func.PopAlert(this, "Caterer inactivation failed");
+                func.PopAlert(this, "Inactivation failed");
             }
         }
 
@@ -109,18 +98,11 @@ FROM            Register INNER JOIN
             if (ans)
             {
                 Load();
-                bool ans2 = func.SendEmail("foodservice710@gmail.com", lblEmail.Text, "Account",
-                    "<h1>Dear Caterer,</h1><br/>Your account has been activate by Admin.<br/><b>Thank you</b>",
-                    "*trishucse01205991#");
-                if (ans2)
-                {
-                    func.PopAlert(this, "Caterer activate successfully");
-                }
-
+                func.PopAlert(this, "Activate successfully");
             }
             else
             {
-                func.PopAlert(this, "Caterer activation failed");
+                func.PopAlert(this, "Activation failed");
             }
         }
     }

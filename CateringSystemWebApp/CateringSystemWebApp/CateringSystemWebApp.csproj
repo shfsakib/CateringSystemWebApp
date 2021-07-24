@@ -108,12 +108,18 @@
     <Content Include="Rating\star.png" />
     <Content Include="Rating\WaitingStar.gif" />
     <Content Include="Rating\WaitingStar.png" />
+    <Content Include="ui\add-admin.aspx" />
+    <Content Include="ui\add-charge.aspx" />
     <Content Include="ui\add-menu.aspx" />
+    <Content Include="ui\admin-list.aspx" />
     <Content Include="ui\caterer-list.aspx" />
+    <Content Include="ui\charge-list-approval.aspx" />
+    <Content Include="ui\charge-list.aspx" />
     <Content Include="ui\completed-order.aspx" />
     <Content Include="ui\customer-list.aspx" />
     <Content Include="ui\index.aspx" />
     <Content Include="ui\menu-list.aspx" />
+    <Content Include="ui\pay-charge.aspx" />
     <Content Include="ui\pending-orders.aspx" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.eot" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.ttf" />
@@ -432,6 +438,20 @@
       <DependentUpon>log-in.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ui\add-admin.aspx.cs">
+      <DependentUpon>add-admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\add-admin.aspx.designer.cs">
+      <DependentUpon>add-admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\add-charge.aspx.cs">
+      <DependentUpon>add-charge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\add-charge.aspx.designer.cs">
+      <DependentUpon>add-charge.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ui\add-menu.aspx.cs">
       <DependentUpon>add-menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -439,12 +459,33 @@
     <Compile Include="ui\add-menu.aspx.designer.cs">
       <DependentUpon>add-menu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ui\admin-list.aspx.cs">
+      <DependentUpon>admin-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\admin-list.aspx.designer.cs">
+      <DependentUpon>admin-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ui\caterer-list.aspx.cs">
       <DependentUpon>caterer-list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ui\caterer-list.aspx.designer.cs">
       <DependentUpon>caterer-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\charge-list-approval.aspx.cs">
+      <DependentUpon>charge-list-approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\charge-list-approval.aspx.designer.cs">
+      <DependentUpon>charge-list-approval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\charge-list.aspx.cs">
+      <DependentUpon>charge-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\charge-list.aspx.designer.cs">
+      <DependentUpon>charge-list.aspx</DependentUpon>
     </Compile>
     <Compile Include="ui\completed-order.aspx.cs">
       <DependentUpon>completed-order.aspx</DependentUpon>
@@ -480,6 +521,13 @@
     </Compile>
     <Compile Include="ui\menu-list.aspx.designer.cs">
       <DependentUpon>menu-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\pay-charge.aspx.cs">
+      <DependentUpon>pay-charge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\pay-charge.aspx.designer.cs">
+      <DependentUpon>pay-charge.aspx</DependentUpon>
     </Compile>
     <Compile Include="ui\pending-orders.aspx.cs">
       <DependentUpon>pending-orders.aspx</DependentUpon>

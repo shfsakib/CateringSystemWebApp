@@ -17,7 +17,7 @@
     <!-- Font Awesome CSS -->
     <link href="../URL/dashboard/assets/font-awesome/css/all.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
-    <link href="../URL/dashboard/assets/css/style.css" rel="stylesheet" type="text/css" /> 
+    <link href="../URL/dashboard/assets/css/style.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
@@ -138,6 +138,22 @@
 
                                 </ul>
                             </li>
+                            <li class="submenu">
+                                <a href="#">
+                                    <i class="fas fa-money-check"></i>
+                                    <span>Monthly Charge</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="/ui/pay-charge.aspx">Pay Charge</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ui/charge-list.aspx">Charge List</a>
+                                    </li>
+
+                                </ul>
+                            </li>
                             <% }
                                 else if (func.TypeCookie() == "Admin")
                                 { %>
@@ -158,6 +174,75 @@
                                     <i class="fas fa-store"></i>
                                     <span>Caterer List </span>
                                 </a>
+                            </li>
+                            <li class="submenu">
+                                <a href="#">
+                                    <i class="fas fa-money-check"></i>
+                                    <span>Monthly Charge</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="/ui/add-charge.aspx">Pay Charge</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ui/charge-list-approval.aspx">Charge List</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="submenu">
+                                <a href="#">
+                                    <i class="fas fa-user-tie"></i>
+                                    <span>Admin</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="/ui/add-admin.aspx">Add Admin</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ui/admin-list.aspx">Admin List</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <% }
+                                else if (func.TypeCookie() == "Moderator")
+                                { %>
+                            <li class="submenu">
+                                <a class="" href="/ui/index.aspx">
+                                    <i class="fas fa-bars"></i>
+                                    <span>Dashboard </span>
+                                </a>
+                            </li>
+                            <li class="submenu">
+                                <a class="" href="/ui/customer-list.aspx">
+                                    <i class="fas fa-user"></i>
+                                    <span>Customer List </span>
+                                </a>
+                            </li>
+                            <li class="submenu">
+                                <a class="" href="/ui/caterer-list.aspx">
+                                    <i class="fas fa-store"></i>
+                                    <span>Caterer List </span>
+                                </a>
+                            </li>
+                            <li class="submenu">
+                                <a href="#">
+                                    <i class="fas fa-money-check"></i>
+                                    <span>Monthly Charge</span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a href="/ui/add-charge.aspx">Pay Charge</a>
+                                    </li>
+                                    <li>
+                                        <a href="/ui/charge-list-approval.aspx">Charge List</a>
+                                    </li>
+
+                                </ul>
                             </li>
                             <% } %>
                         </ul>
@@ -187,27 +272,27 @@
                 <!-- END container-fluid -->
             </div>
             <!-- END content -->
-             <script src="../URL/dashboard/assets/js/modernizr.min.js"></script>
-        <script src="../URL/dashboard/assets/js/jquery.min.js"></script>
-        <script src="../URL/dashboard/assets/js/moment.min.js"></script>
+            <script src="../URL/dashboard/assets/js/modernizr.min.js"></script>
+            <script src="../URL/dashboard/assets/js/jquery.min.js"></script>
+            <script src="../URL/dashboard/assets/js/moment.min.js"></script>
 
-        <script src="../URL/dashboard/assets/js/popper.min.js"></script>
-        <script src="../URL/dashboard/assets/js/bootstrap.min.js"></script>
+            <script src="../URL/dashboard/assets/js/popper.min.js"></script>
+            <script src="../URL/dashboard/assets/js/bootstrap.min.js"></script>
 
-        <script src="../URL/dashboard/assets/js/detect.js"></script>
-        <script src="../URL/dashboard/assets/js/fastclick.js"></script>
-        <script src="../URL/dashboard/assets/js/jquery.blockUI.js"></script>
-        <script src="../URL/dashboard/assets/js/jquery.nicescroll.js"></script>
+            <script src="../URL/dashboard/assets/js/detect.js"></script>
+            <script src="../URL/dashboard/assets/js/fastclick.js"></script>
+            <script src="../URL/dashboard/assets/js/jquery.blockUI.js"></script>
+            <script src="../URL/dashboard/assets/js/jquery.nicescroll.js"></script>
 
-        <!-- App js -->
-        <script src="../URL/dashboard/assets/js/admin.js"></script>
+            <!-- App js -->
+            <script src="../URL/dashboard/assets/js/admin.js"></script>
 
 
         </div>
         <!-- END main -->
     </form>
-    <!-- END content-page -->  
-     <!-- BEGIN Java Script for this page -->
+    <!-- END content-page -->
+    <!-- BEGIN Java Script for this page -->
     <script src="../URL/dashboard/assets/plugins/chart.js/Chart.min.js"></script>
     <script src="../URL/dashboard/assets/plugins/datatables/datatables.min.js"></script>
 
@@ -220,7 +305,7 @@
 
     <!-- Charts data -->
     <script src="../URL/dashboard/assets/data/data_charts_dashboard.js"></script>
-    <!-- Charts data --> 
+    <!-- Charts data -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
     <link href="../URL/select2.css" rel="stylesheet" />

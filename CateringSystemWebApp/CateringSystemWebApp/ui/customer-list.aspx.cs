@@ -110,13 +110,13 @@ namespace CateringSystemWebApp.ui
                     "*trishucse01205991#");
                 if (ans2)
                 {
-                    func.PopAlert(this, "Customer inactivate successfully");
+                    func.PopAlert(this, "Customer activate successfully");
                 }
 
             }
             else
             {
-                func.PopAlert(this, "Customer inactivation failed");
+                func.PopAlert(this, "Customer activation failed");
             }
         }
     }
