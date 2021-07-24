@@ -28,6 +28,7 @@ namespace CateringSystemWebApp.web
                 {
                     Session["address"] = "";
                 }
+                func.CheckStatus("Register","RegId");
             }
         }
 

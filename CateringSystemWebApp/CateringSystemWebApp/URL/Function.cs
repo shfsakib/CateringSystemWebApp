@@ -100,7 +100,7 @@ namespace CateringSystemWebApp.URL
                     result = false;
                 if (Conn.State != ConnectionState.Closed) Conn.Close();
             }
-            catch(Exception ex) { if (Conn.State != ConnectionState.Closed) Conn.Close(); }
+            catch (Exception ex) { if (Conn.State != ConnectionState.Closed) Conn.Close(); }
             return result;
         }
         public string IsExist(string str)
@@ -373,6 +373,15 @@ namespace CateringSystemWebApp.URL
             }
         }
 
+        public void CheckStatus(string tableName,string userId)
+        {
+            string x = IsExist($@"SELECT Status FROM "+tableName+" WHERE "+userId+$"='{UserIdCookie()}'");
+            if (x != "A")
+            {
+                Logout();
+            }
+        }
+
         public void Logout()
         {
             HttpCookie cookies = GetCookie();
@@ -386,33 +395,33 @@ namespace CateringSystemWebApp.URL
             return cookies["UserId"];
         }
         public string NameCookie()
-        { 
+        {
             HttpCookie cookies = GetCookie();
             return cookies["Name"];
         }
         public string MobileCookie()
-        { 
+        {
             HttpCookie cookies = GetCookie();
             return cookies["Mobile"];
         }
         public string EmailCookie()
-        { 
+        {
             HttpCookie cookies = GetCookie();
             return cookies["Email"];
         }
         public string PictureCookie()
-        { 
+        {
             HttpCookie cookies = GetCookie();
             return cookies["Picture"];
         }
         public string TypeCookie()
-        { 
+        {
             HttpCookie cookies = GetCookie();
             return cookies["Type"];
         }
 
         public void CheckTypeCookie(Page page, string type)
-        { 
+        {
             HttpCookie cookies = GetCookie();
             if (cookies["Type"] != type)
             {

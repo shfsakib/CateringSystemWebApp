@@ -18,7 +18,10 @@ namespace CateringSystemWebApp.ui
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                func.CheckStatus("Register", "RegId");
+            }
         }
 
         protected void OnServerClick(object sender, EventArgs e)
