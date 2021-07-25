@@ -63,7 +63,7 @@
                                 </div>
 
                                 <!-- item-->
-                                <a href="profile.html" class="dropdown-item notify-item">
+                                <a href="/ui/profile.aspx" class="dropdown-item notify-item">
                                     <i class="fas fa-user"></i>
                                     <span>Profile</span>
                                 </a>
@@ -315,6 +315,15 @@
                 closeOnSelect: false
             });
         });
+        function ImagePreview(input, id) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#"' + id + '"').prop('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 
 </body>

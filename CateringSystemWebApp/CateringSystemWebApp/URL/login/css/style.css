@@ -246,11 +246,16 @@ h1 {
     background: url(../images/logo.png) no-repeat;
     background-position-x: 50%;
     background-position-y: 50%;
+    background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
     height: 150px;
+    width: 150px !important;
+    position: relative; 
+    margin: 0 auto !important;
     order: 1;
+    float: none !important;
 }
 
 /* vertical tabs */

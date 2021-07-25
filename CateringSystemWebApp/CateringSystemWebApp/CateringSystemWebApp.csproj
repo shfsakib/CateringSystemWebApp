@@ -121,6 +121,7 @@
     <Content Include="ui\menu-list.aspx" />
     <Content Include="ui\pay-charge.aspx" />
     <Content Include="ui\pending-orders.aspx" />
+    <Content Include="ui\profile.aspx" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.eot" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.ttf" />
     <Content Include="URL\dashboard\assets\font-awesome\webfonts\fa-brands-400.woff" />
@@ -165,6 +166,7 @@
     <Content Include="web\completed-order.aspx" />
     <Content Include="web\pay-order.aspx" />
     <Content Include="web\pending-payment.aspx" />
+    <Content Include="web\profile.aspx" />
     <Content Include="web\rate-caterer.aspx" />
     <Content Include="web\view-cart.aspx" />
     <Content Include="web\waiting-order.aspx" />
@@ -536,6 +538,13 @@
     <Compile Include="ui\pending-orders.aspx.designer.cs">
       <DependentUpon>pending-orders.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ui\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="URL\Function.cs" />
     <Compile Include="web\completed-order.aspx.cs">
       <DependentUpon>completed-order.aspx</DependentUpon>
@@ -578,6 +587,13 @@
     </Compile>
     <Compile Include="web\pending-payment.aspx.designer.cs">
       <DependentUpon>pending-payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="web\rate-caterer.aspx.cs">
       <DependentUpon>rate-caterer.aspx</DependentUpon>
