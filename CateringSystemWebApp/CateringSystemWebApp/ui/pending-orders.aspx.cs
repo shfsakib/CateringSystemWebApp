@@ -21,6 +21,7 @@ namespace CateringSystemWebApp.ui
 
             if (!IsPostBack)
             {
+                func.CheckTypeCookie(this, "Cate");
                 Load();
             }
         }

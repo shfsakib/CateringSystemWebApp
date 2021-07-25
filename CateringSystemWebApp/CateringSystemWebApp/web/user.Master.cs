@@ -20,6 +20,7 @@ namespace CateringSystemWebApp.web
         {
             if (!IsPostBack)
             {
+                func.CheckTypeCookie(Page,"Cust");
                 if (Session["count"] == null)
                 {
                     Session["count"] = 0;

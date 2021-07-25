@@ -20,6 +20,7 @@ namespace CateringSystemWebApp.ui
         {
             if (!IsPostBack)
             {
+                func.AdminType(this,"Admin","Moderator");
                 LoadCharge();
                 func.BindDropDown(ddlCatering, "Catering Name", $"SELECT Name +' | '+ Email AS Name,RegId Id FROM Register WHERE Type='Cate' ORDER By Name ASC");
 

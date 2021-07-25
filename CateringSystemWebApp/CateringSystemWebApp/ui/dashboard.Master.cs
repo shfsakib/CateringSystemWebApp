@@ -20,6 +20,7 @@ namespace CateringSystemWebApp.ui
         {
             if (!IsPostBack)
             {
+                func.CheckCookies();
                 func.CheckStatus("Register", "RegId");
             }
         }

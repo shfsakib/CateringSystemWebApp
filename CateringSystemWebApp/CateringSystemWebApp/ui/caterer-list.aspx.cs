@@ -20,6 +20,7 @@ namespace CateringSystemWebApp.ui
         {
             if (!IsPostBack)
             {
+                func.AdminType(this,"Admin","Moderator");
                 Load();
             }
         }
