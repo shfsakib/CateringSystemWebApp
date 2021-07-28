@@ -13,8 +13,7 @@ namespace CateringSystemWebApp.ui
         private Function func;
 
         public index()
-        {
-            func.CheckCookies();
+        { 
             func = Function.GetInstance();
         }
         protected void Page_Load(object sender, EventArgs e)
