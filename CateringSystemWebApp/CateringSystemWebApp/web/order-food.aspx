@@ -95,7 +95,7 @@
             <asp:Repeater ID="menuItem" runat="server">
                 <ItemTemplate>
                     <div class="col-6 col-xs-12 col-sm-6 col-md-4 lgx-single-speacial lgx-card-single">
-                        <figure>
+                        <figure style="text-align: center;">
 
                             <asp:HiddenField ID="CateId" runat="server" Value='<%#Eval("CateId")%>' />
                             <asp:HiddenField ID="foodId" runat="server" Value='<%#Eval("FoodId")%>' />

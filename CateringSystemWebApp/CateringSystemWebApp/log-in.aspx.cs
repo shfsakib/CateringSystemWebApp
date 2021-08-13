@@ -15,6 +15,7 @@ namespace CateringSystemWebApp
         private Function func;
         Random random = new Random();
         private HttpCookie cookie = Function.GetCookie();
+      
         public log_in()
         {
             func = Function.GetInstance();

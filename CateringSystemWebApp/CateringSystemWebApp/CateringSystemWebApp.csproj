@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -163,6 +164,7 @@
     <Content Include="URL\login\fonts\fontawesome-webfont3e6e.woff2" />
     <Content Include="URL\login\fonts\fontawesome-webfontd41d.eot" />
     <Content Include="ui\dashboard.Master" />
+    <Content Include="web\caterer-list.aspx" />
     <Content Include="web\completed-order.aspx" />
     <Content Include="web\pay-order.aspx" />
     <Content Include="web\pending-payment.aspx" />
@@ -546,6 +548,13 @@
       <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="URL\Function.cs" />
+    <Compile Include="web\caterer-list.aspx.cs">
+      <DependentUpon>caterer-list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\caterer-list.aspx.designer.cs">
+      <DependentUpon>caterer-list.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\completed-order.aspx.cs">
       <DependentUpon>completed-order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
