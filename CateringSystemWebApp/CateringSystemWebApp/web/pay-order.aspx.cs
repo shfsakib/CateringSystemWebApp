@@ -63,12 +63,30 @@ namespace CateringSystemWebApp.web
                         }
                         else
                         {
-                            func.PopAlert(this, "Failed to payment");
+                            Session["dataGrid"] = null;
+                            Session["count"] = 0;
+                            bool updateAns =
+                                func.Execute(
+                                    $@"UPDATE OrderList SET Status='A' WHERE OrderInvoice='{
+                                        Request.QueryString["invoice"]}'");
+                            if (updateAns)
+                            {
+                                func.AlertWithRedirect(this, "Payment added successfully", "/web/home.aspx");
+                            }
                         }
                     }
                     else
                     {
-                        func.PopAlert(this, "Failed to payment");
+                        Session["dataGrid"] = null;
+                        Session["count"] = 0;
+                        bool updateAns =
+                            func.Execute(
+                                $@"UPDATE OrderList SET Status='A' WHERE OrderInvoice='{
+                                    Request.QueryString["invoice"]}'");
+                        if (updateAns)
+                        {
+                            func.AlertWithRedirect(this, "Payment added successfully", "/web/home.aspx");
+                        }
                     }
                 }
                 else
