@@ -49,6 +49,24 @@ namespace CateringSystemWebApp.web {
         protected global::System.Web.UI.WebControls.DataList dataReceipeType;
         
         /// <summary>
+        /// btnReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnReview;
+        
+        /// <summary>
+        /// foodDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl foodDiv;
+        
+        /// <summary>
         /// menuItem control.
         /// </summary>
         /// <remarks>
@@ -65,5 +83,23 @@ namespace CateringSystemWebApp.web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridTemp;
+        
+        /// <summary>
+        /// reviewDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl reviewDiv;
+        
+        /// <summary>
+        /// gridReview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gridReview;
     }
 }

@@ -77,7 +77,7 @@
         </div>
     </section>
     <div class="row" style="padding-top: 40px">
-        <div class="col-lg-5 p-4">
+        <div class="col-lg-12 p-4" style="display: inline-flex!Important">
             <asp:DataList ID="dataReceipeType" Width="100%" RepeatDirection="Horizontal" RepeatColumns="6" RepeatLayout="Flow" runat="server">
                 <ItemStyle CssClass="text-center border-right"></ItemStyle>
                 <ItemTemplate>
@@ -87,10 +87,14 @@
                     </asp:LinkButton>
                 </ItemTemplate>
             </asp:DataList>
+            <span class="text-center">
+                <asp:LinkButton ID="btnReview" runat="server" Style="font-weight: bold; padding: 15px 15px; font-size: 18px;" OnClick="btnReview_OnClick">
+                        Reviews
+                </asp:LinkButton></span>
             <hr style="padding: 5px 0;" />
         </div>
     </div>
-    <div class="row mr-0">
+    <div class="row mr-0" id="foodDiv" runat="server">
         <div class="col-12 table-responsive" style="height: auto; overflow-y: auto; overflow-x: hidden;">
             <asp:Repeater ID="menuItem" runat="server">
                 <ItemTemplate>
@@ -142,6 +146,32 @@
                 </Columns>
             </asp:GridView>
 
+        </div>
+    </div>
+    <div class="row mr-0" id="reviewDiv" runat="server" Visible="False">
+        <div class="col-md-12 table-responsive pt-3">
+            <asp:GridView ID="gridReview" Width="100%" class="table table-hover table-bordered table-striped" Style="background: #ededfb;" AutoGenerateColumns="False" ShowHeader="False" AllowPaging="True" PageSize="20" OnPageIndexChanging="gridReview_OnPageIndexChanging" ShowHeaderWhenEmpty="True" EmptyDataText="No Review Found" runat="server">
+                <Columns>
+                    <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#Eval("RateId")%>' />
+                            <div class="col-12 p-3 pl-2" style="padding: 10px;">
+                                <div class="row p-0">
+                                    <div class="col-12 col-lg-12" style="padding: 15px!important">
+                                        <img src="/URL/user.png" style="width: 30px; height: 30px; border-radius: 50%; border: 1px solid black;" />&nbsp;&nbsp;&nbsp;<b>Anonymous</b><br />
+                                        <br />
+                                        <span style="padding: 10px 0 0 30px; display: block; white-space: nowrap;"><i class="far fa-comment-alt fa-lg"></i>&nbsp;&nbsp;<asp:Label ID="lblReview" runat="server" Text='<%#Eval("Review")%>'></asp:Label>
+                                        </span>
+                                        <br />
+                                        <span style="float: right; font-size: 14px; color: #495057;"><%#Eval("InTime")%></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                </Columns>
+            </asp:GridView>
         </div>
     </div>
 

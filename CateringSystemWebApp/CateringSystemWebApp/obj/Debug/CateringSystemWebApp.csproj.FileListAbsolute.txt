@@ -61,8 +61,6 @@ D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\bin\Micros
 D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\bin\Microsoft.AI.WindowsServer.xml
 D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\bin\Microsoft.ApplicationInsights.xml
 D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\obj\Debug\CateringSystemWebApp.csprojAssemblyReference.cache
-D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\obj\Debug\CateringSystemWebApp.csproj.CoreCompileInputs.cache
-D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\obj\Debug\CateringSystemWebApp.csproj.CopyComplete
 D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\obj\Debug\CateringSystemWebApp.dll
 D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\obj\Debug\CateringSystemWebApp.pdb
+D:\Git\CateringSystemWebApp\CateringSystemWebApp\CateringSystemWebApp\obj\Debug\CateringSystemWebApp.csprojResolveAssemblyReference.cache

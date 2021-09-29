@@ -58,6 +58,8 @@ namespace CateringSystemWebApp.web
             LinkButton linkButton = (LinkButton)sender;
             HiddenField HiddenField1 = (HiddenField)linkButton.Parent.FindControl("HiddenField1");
             LoadMenu(HiddenField1.Value);
+            foodDiv.Visible = true;
+            reviewDiv.Visible = false;
         }
         private void LoadSession()
         {
@@ -141,6 +143,21 @@ namespace CateringSystemWebApp.web
             dataTable = (DataTable)gridTemp.DataSource;
             Session["dataGrid"] = dataTable;
 
+        }
+
+        protected void btnReview_OnClick(object sender, EventArgs e)
+        {
+            foodDiv.Visible = false;
+            reviewDiv.Visible = true;
+            id = Request.QueryString["id"];
+            func.LoadGrid(gridReview, $@"SELECT * FROM Rating WHERE RatedId='{id}' ORDER By RateId DESC");
+        }
+
+        protected void gridReview_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gridReview.PageIndex = e.NewPageIndex;
+            id = Request.QueryString["id"];
+            func.LoadGrid(gridReview, $@"SELECT * FROM Rating WHERE RatedId='{id}' ORDER By RateId DESC");
         }
     }
 }

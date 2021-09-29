@@ -53,7 +53,7 @@ namespace CateringSystemWebApp.web
             }
             else if (IsRateExist(Rating1.CurrentRating.ToString()))
             {
-                bool ans2 = func.Execute($@"UPDATE Rating SET Rate='{Rating1.CurrentRating}' WHERE RatedId='{Request.QueryString["id"]}' AND UserId='{func.UserIdCookie()}'");
+                bool ans2 = func.Execute($@"UPDATE Rating SET Rate='{Rating1.CurrentRating}',Review='{txtReview.Text}' WHERE RatedId='{Request.QueryString["id"]}' AND UserId='{func.UserIdCookie()}'");
                 if (ans2)
                 {
                     Response.Redirect("/log-in.aspx");
@@ -66,7 +66,7 @@ namespace CateringSystemWebApp.web
             }
             else
             {
-                bool ans = func.Execute($@"INSERT INTO Rating(RatedId,UserId,Rate,InTime) VALUES('{Request.QueryString["id"]}','{func.UserIdCookie()}','{Rating1.CurrentRating}','{func.Date()}')");
+                bool ans = func.Execute($@"INSERT INTO Rating(RatedId,UserId,Rate,Review,InTime) VALUES('{Request.QueryString["id"]}','{func.UserIdCookie()}','{Rating1.CurrentRating}','{txtReview.Text}','{func.Date()}')");
                 if (ans)
                 {
                     Response.Redirect("/log-in.aspx");

@@ -49,6 +49,12 @@
                         </div>
                     </div>
                     <div class="row">
+                        <div class="col-12">
+                            <span><strong>Review</strong></span>
+                            <asp:TextBox ID="txtReview" Height="100px" TextMode="MultiLine" runat="server" CssClass="form-control" style="font-size: 20px; font-weight: 600;"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-12" style="margin-top: 10px;">
                             <asp:HiddenField ID="rateValue" runat="server" />
                             <asp:LinkButton ID="btnRating" OnClick="btnRating_OnClick" class="btn btn-primary" runat="server">Submit Rating</asp:LinkButton>
