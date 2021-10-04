@@ -27,7 +27,7 @@ namespace CateringSystemWebApp.ui
         private void Load()
         {
             string id = Request.QueryString["id"];
-            func.LoadGrid(gridIncome,$"SELECT DISTINCT SUBSTRING(OrderList.Ordertime,4,7) As OrderMonth ,CONVERT(decimal(18,2),SUM(TOTAL)*.05) TotalIncome FROM OrderList WHERE CateId='{id}' GROUP BY SUBSTRING(OrderList.Ordertime,4,7) ORDER BY SUBSTRING(OrderList.Ordertime,4,7) DESC"); 
+            func.LoadGrid(gridIncome,$"SELECT DISTINCT SUBSTRING(OrderList.Ordertime,4,7) As OrderMonth ,CONVERT(decimal(18,2),SUM(TOTAL)) TotalIncome FROM OrderList WHERE CateId='{id}' GROUP BY SUBSTRING(OrderList.Ordertime,4,7) ORDER BY SUBSTRING(OrderList.Ordertime,4,7) DESC"); 
         }
         protected void gridIncome_OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
