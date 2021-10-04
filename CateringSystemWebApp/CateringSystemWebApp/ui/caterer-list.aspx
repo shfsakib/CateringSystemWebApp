@@ -32,6 +32,11 @@
                                     <asp:Label ID="Label1" runat="server" Text='<%#Eval("Name")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Rating">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblRating" runat="server"></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
                             <asp:TemplateField HeaderText="Email">
                                 <ItemTemplate>
                                     <asp:Label ID="lblEmail" runat="server" Text='<%#Eval("Email")%>'></asp:Label>
@@ -62,7 +67,7 @@
                                     <asp:Label ID="Label513" runat="server" Text='<%#Eval("TransNo")%>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-                             <asp:TemplateField HeaderText="Reference">
+                            <asp:TemplateField HeaderText="Reference">
                                 <ItemTemplate>
                                     <asp:Label ID="Label515" runat="server" Text='<%#Eval("Amount")%>'></asp:Label>
                                 </ItemTemplate>
@@ -76,6 +81,8 @@
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkInactive" class="btn btn-danger" OnClick="lnkInactive_OnClick" runat="server" ToolTip="Make Inactive"><i class="fas fa-times fa-lg"></i></asp:LinkButton>
                                     <asp:LinkButton ID="lbkActive" class="btn btn-success" OnClick="lbkActive_OnClick" runat="server" ToolTip="Make Active"><i class="fas fa-check fa-lg"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lnkView" class="btn btn-primary mt-2" href='<%#"customer-review.aspx?id="+Eval("RegId")%>' target="_blank" runat="server" ToolTip="View Reviews"><i class="far fa-comment-alt fa-lg"></i></asp:LinkButton>
+                                    <asp:LinkButton ID="lnkIncome" class="btn btn-warning mt-2" href='<%#"caterer-monthly-income.aspx?id="+Eval("RegId")%>' target="_blank" runat="server" ToolTip="View Incomes"><i class="fas fa-wallet fa-lg"></i></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

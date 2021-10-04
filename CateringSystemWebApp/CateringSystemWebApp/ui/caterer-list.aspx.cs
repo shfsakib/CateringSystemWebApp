@@ -20,7 +20,7 @@ namespace CateringSystemWebApp.ui
         {
             if (!IsPostBack)
             {
-                func.AdminType(this,"Admin","Moderator");
+                func.AdminType(this, "Admin", "Moderator");
                 Load();
             }
         }
@@ -58,6 +58,9 @@ FROM            Register INNER JOIN
             {
                 LinkButton linkActive = (LinkButton)e.Row.FindControl("lbkActive");
                 LinkButton linkInactive = (LinkButton)e.Row.FindControl("lnkInactive");
+                Label lblRating = (Label)e.Row.FindControl("lblRating");
+                HiddenField id = (HiddenField) e.Row.FindControl("HiddenField1");
+
                 if (ddlStatus.Text == "A")
                 {
                     linkActive.Visible = false;
@@ -67,6 +70,15 @@ FROM            Register INNER JOIN
                 {
                     linkActive.Visible = true;
                     linkInactive.Visible = false;
+                }
+                string x= func.IsExist($@"SELECT SUM(Rate)/COUNT(Rate) AS Rating FROM Rating WHERE RatedId='{id.Value}'");
+                if (x=="")
+                {
+                    lblRating.Text = "5 ✰";
+                }
+                else
+                {
+                    lblRating.Text = x + " ✰";
                 }
             }
         }
@@ -123,6 +135,7 @@ FROM            Register INNER JOIN
             {
                 func.PopAlert(this, "Caterer activation failed");
             }
-        }
+        } 
+        
     }
 }
