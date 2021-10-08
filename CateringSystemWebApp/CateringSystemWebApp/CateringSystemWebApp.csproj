@@ -120,6 +120,7 @@
     <Content Include="ui\completed-order.aspx" />
     <Content Include="ui\customer-list.aspx" />
     <Content Include="ui\customer-review.aspx" />
+    <Content Include="ui\daily-income.aspx" />
     <Content Include="ui\index.aspx" />
     <Content Include="ui\menu-list.aspx" />
     <Content Include="ui\pay-charge.aspx" />
@@ -520,6 +521,13 @@
     </Compile>
     <Compile Include="ui\customer-review.aspx.designer.cs">
       <DependentUpon>customer-review.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ui\daily-income.aspx.cs">
+      <DependentUpon>daily-income.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ui\daily-income.aspx.designer.cs">
+      <DependentUpon>daily-income.aspx</DependentUpon>
     </Compile>
     <Compile Include="ui\dashboard.Master.cs">
       <DependentUpon>dashboard.Master</DependentUpon>
